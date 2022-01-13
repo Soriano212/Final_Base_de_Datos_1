@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Menu</class>
+ <widget class="QMainWindow" name="Menu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>482</width>
+    <height>695</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Menú</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>../../../icons/casa.png</normalon>
+   </iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <property name="windowFilePath">
+   <string/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <widget class="QLabel" name="label_image_usuario">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>110</width>
+      <height>110</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../../icons/usuario.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Usuario">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>110</y>
+      <width>331</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Juan Javier Malo Vega</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_titulo">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>181</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Menú</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line_1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>461</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="btn_todas_encuestas">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>230</y>
+      <width>421</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>26</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.495, x2:0, y2:0.438, stop:0.0909091 rgba(255, 170, 255, 255), stop:0.988636 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+
+</string>
+    </property>
+    <property name="text">
+     <string>  Todas las Encuestas</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../icons/aplicaciones.png</normaloff>../../../icons/aplicaciones.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>77</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>461</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="btn_encuesta">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>340</y>
+      <width>421</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>26</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.495, x2:0, y2:0.438, stop:0.0909091 rgb(161, 255, 191), stop:0.988636 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+
+</string>
+    </property>
+    <property name="text">
+     <string>    Crear Encuesta</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../icons/editar.png</normaloff>../../../icons/editar.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="btn_mis_encuestas">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>450</y>
+      <width>421</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>26</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.495, x2:0, y2:0.438, stop:0.0909091 rgb(255, 228, 148), stop:0.988636 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+
+</string>
+    </property>
+    <property name="text">
+     <string>     Mis Encuestas</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../icons/noticias.png</normaloff>../../../icons/noticias.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="btn_cerrar_sesion">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>560</y>
+      <width>421</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>26</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0.495, x2:0, y2:0.438, stop:0.0909091 rgb(113, 208, 255), stop:0.988636 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));
+
+</string>
+    </property>
+    <property name="text">
+     <string>     Cerrar Sesión</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../icons/hacia-atras.png</normaloff>../../../icons/hacia-atras.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>482</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(236, 236, 236);
+selection-background-color: rgb(191, 191, 191);</string>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>Menú</string>
+    </property>
+    <addaction name="action_todas_ecuestas"/>
+    <addaction name="action_crear_encuesta"/>
+    <addaction name="action_mis_Encuestas"/>
+   </widget>
+   <widget class="QMenu" name="menuCuenta">
+    <property name="title">
+     <string>Cuenta</string>
+    </property>
+    <addaction name="action_administrar"/>
+    <addaction name="action_cerrar_sesion"/>
+   </widget>
+   <addaction name="menuMenu"/>
+   <addaction name="menuCuenta"/>
+  </widget>
+  <action name="action_todas_ecuestas">
+   <property name="text">
+    <string>Todas las Ecuestas</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_crear_encuesta">
+   <property name="text">
+    <string>Crear Encuesta</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_mis_Encuestas">
+   <property name="text">
+    <string>Mis Encuestas</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_administrar">
+   <property name="text">
+    <string>Administrar</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_cerrar_sesion">
+   <property name="text">
+    <string>Cerrar Sesión</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
