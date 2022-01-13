@@ -13,7 +13,7 @@ class DataBase:
         self.cursor = self.connection.cursor()
 
 
-    def ingresar(self, tabla: str, **kwargs) -> bool:
+    def ingresar(self, tabla: str, **kwargs) -> int:
         sql = 'INSERT INTO {}('.format(tabla)
         
         for dato in kwargs.items():
@@ -32,9 +32,13 @@ class DataBase:
             self.connection.commit()
         
         except pymysql.err.OperationalError as e:
-            print("Error De Operacion")
+            logging.warning("Error De Operacion: " + str(e))
+            return 1
         
         except pymysql.err.IntegrityError as e:
-            print("Error de Integridad")
+            logging.info("Error de Integridad: " + str(e))
+            return 2
+        
+        return 0
 
 

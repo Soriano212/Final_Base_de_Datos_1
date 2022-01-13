@@ -18,21 +18,15 @@ class Usuario():
     def __str__():
         return Usuario
 
-    def toDB(self) -> dict:
-        diccionario = {nameof(self.nombre): self.nombre,
-                    nameof(self.usuario): self.usuario,
-                    nameof(self.email): self.email,
-                    nameof(self.contrasenia): self.contrasenia}
-        return diccionario
+    def registrarUsuario(self) -> int:
+        res = db.ingresar('usuario', nombre = self.nombre, usuario = self.usuario,
+                        email = self.email, contrasenia = self.contrasenia)
+        return res
 
-def inicioSecion(email: str, contrasenia: str):
-    pass
+    def inicioSecion(email: str, contrasenia: str):
+        pass
 
-def registrarUsuario(usuario: Usuario):
-    db.ingresar('usuario', nombre = usuario.nombre,
-                usuario = usuario.usuario,
-                email = usuario.email,
-                contrasenia = usuario.contrasenia)
+
 
 if __name__ == "__main__":
     usu = Usuario('Alberto', 'Albe212', 'morir@gmail.com', 'hola')
