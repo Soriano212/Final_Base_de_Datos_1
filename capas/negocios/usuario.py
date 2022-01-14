@@ -23,11 +23,7 @@ class Usuario():
                         email = self.email, contrasenia = self.contrasenia)
         return res
 
-    def inicioSecion(email: str, contrasenia: str):
+    def inicioSecion(cls, email: str, contrasenia: str):
         pass
 
 
-
-if __name__ == "__main__":
-    usu = Usuario('Alberto', 'Albe212', 'morir@gmail.com', 'hola')
-    registrarUsuario(usu)
