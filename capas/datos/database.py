@@ -81,7 +81,7 @@ class DataBase:
             return 1
         
         except pymysql.err.IntegrityError as e:
-            logging.info("Error de Integridad: " + str(e))
+            logging.warning("Error de Integridad: " + str(e))
             return 2
 
     def llave_ultimo_insert(self) -> tuple | int:

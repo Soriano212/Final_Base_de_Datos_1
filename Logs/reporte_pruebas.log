@@ -18,3 +18,8 @@ INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com'
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario2@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
+INFO:root:Realizando INSERT: INSERT INTO usuario(cedula,nombre,email,contrasenia) VALUES ('0150440378','Alberto Soriano','alber212@gmail.com','d033e22ae348aeb5660fc2140aec35850c4da997')
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alber212@gmail.com' AND contrasenia='d033e22ae348aeb5660fc2140aec35850c4da997'
+INFO:root:Log creado el: 2022-1-15_17-34-10
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsadsa' AND contrasenia='163cc62e57efd43c052b48bf154e5d2f5d2ccfc2'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'

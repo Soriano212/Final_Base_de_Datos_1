@@ -102,13 +102,13 @@ class Ui_InicioSesion(object):
         self.label_titulo_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_titulo_2.setObjectName("label_titulo_2")
         
-        self.txt_nombre_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_nombre_registro.setGeometry(QtCore.QRect(210, 117, 330, 30))
-        self.txt_nombre_registro.setObjectName("txt_nombre_registro")
+        self.txt_cedula_registro = QtWidgets.QLineEdit(self.tab_registro)
+        self.txt_cedula_registro.setGeometry(QtCore.QRect(210, 117, 330, 30))
+        self.txt_cedula_registro.setObjectName("txt_cedula_registro")
         
-        self.txt_usuario_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_usuario_registro.setGeometry(QtCore.QRect(210, 184, 330, 30))
-        self.txt_usuario_registro.setObjectName("txt_usuario_registro")
+        self.txt_nombre_registro = QtWidgets.QLineEdit(self.tab_registro)
+        self.txt_nombre_registro.setGeometry(QtCore.QRect(210, 184, 330, 30))
+        self.txt_nombre_registro.setObjectName("txt_nombre_registro")
         
         self.txt_email_registro = QtWidgets.QLineEdit(self.tab_registro)
         self.txt_email_registro.setGeometry(QtCore.QRect(210, 253, 330, 30))
@@ -158,6 +158,6 @@ class Ui_InicioSesion(object):
         self.label_email_registro.setText(_translate("InicioSesion", "Email"))
         self.btn_registro.setText(_translate("InicioSesion", "Registrarse"))
         self.label_titulo_2.setText(_translate("InicioSesion", "Registro"))
-        self.label_nombre_registro.setText(_translate("InicioSesion", "Nombre"))
-        self.label__usuario_registro.setText(_translate("InicioSesion", "Usuario"))
+        self.label_nombre_registro.setText(_translate("InicioSesion", "Cedula"))
+        self.label__usuario_registro.setText(_translate("InicioSesion", "Nombre"))
         InicioSesion.setTabText(InicioSesion.indexOf(self.tab_registro), _translate("InicioSesion", "Registrarse"))

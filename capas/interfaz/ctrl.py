@@ -20,14 +20,14 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
         self.btn_ingresar.clicked.connect(self.ingresar)
 
     def registrarse(self):
+        ced = self.txt_cedula_registro.text()
         nom = self.txt_nombre_registro.text()
-        usu = self.txt_usuario_registro.text()
         email = self.txt_email_registro.text()
         contra = self.txt_contrasenia_registro.text()
         
         men = ''
         
-        if len(nom) < 3 or len(usu) < 3 or len(email) < 3 or len(contra) < 3:
+        if len(nom) < 3 or len(ced) < 3 or len(email) < 3 or len(contra) < 3:
             men += 'Los campos deben tener un largo mayor a 3.'
         
         if "@" not in email and "." not in email:
@@ -35,11 +35,11 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
             men += 'Email invalido.'
         
         if len(men) == 0:
-            self.ven_dialogo.dialog("Registro", "Desea registrarse con los\ndatos ingresados", 0, 3)
+            self.ven_dialogo.dialog("Registro", "Desea registrarse con los datos ingresados.", 0, 3)
             self.ven_dialogo.exec()
             
             if self.ven_dialogo.result() == 1:
-                usuario = Usuario(nom, usu, email, contra)
+                usuario = Usuario(ced, nom, email, contra)
                 res = usuario.registrarUsuario()
                 
                 match res:
@@ -86,7 +86,7 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
         self.txt_email_registro.setText('')
         self.txt_nombre_registro.setText('')
         self.txt_contrasenia_registro.setText('')
-        self.txt_usuario_registro.setText('')
+        self.txt_cedula_registro.setText('')
         
         self.txt_email_sesion.setText('')
         self.txt_contrasenia_sesion.setText('')
