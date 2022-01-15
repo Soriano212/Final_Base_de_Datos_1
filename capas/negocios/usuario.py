@@ -10,10 +10,7 @@ class Usuario():
         self.nombre = nombre
         self.usuario = usuario
         self.email = email
-        encode = contrasenia.encode()
-        hash_contra = hashlib.sha1(encode)
-        pbHash = hash_contra.hexdigest()
-        self.contrasenia = pbHash
+        self.contrasenia = Usuario.sha1(contrasenia)
 
     def __str__():
         return Usuario
@@ -21,9 +18,25 @@ class Usuario():
     def registrarUsuario(self) -> int:
         res = db.ingresar('usuario', nombre = self.nombre, usuario = self.usuario,
                         email = self.email, contrasenia = self.contrasenia)
-        return res
+        match res:
+            case 1:
+                print('Error al registrar usuario.')
+                return 1
+            case 2:
+                print('El email ya se encuentra registrado.')
+                return 2
+            case 0:
+                print('Usuario registrado.')
+                db.commit()
+                return 0
+
+    def sha1(cls, contrasenia: str):
+        encode = contrasenia.encode()
+        hash_contra = hashlib.sha1(encode)
+        pbHash = hash_contra.hexdigest()
+        return pbHash
 
     def inicioSecion(cls, email: str, contrasenia: str):
-        pass
+        res = db.select
 
 
