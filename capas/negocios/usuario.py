@@ -6,17 +6,18 @@ from capas.datos.database import DataBase
 db = DataBase()
 
 class Usuario():
-    def __init__(self, nombre: str, usuario: str, email: str, contrasenia: str) -> None:
+    def __init__(self, nombre: str, usuario: str, email: str, contrasenia: str, id: str = None) -> None:
+        self.id = id
         self.nombre = nombre
         self.usuario = usuario
         self.email = email
-        self.contrasenia = Usuario.sha1(contrasenia)
+        self.contrasenia = self.sha1(contrasenia)
 
     def __str__():
         return Usuario
 
     def registrarUsuario(self) -> int:
-        res = db.ingresar('usuario', nombre = self.nombre, usuario = self.usuario,
+        res = db.insert('usuario', nombre = self.nombre, usuario = self.usuario,
                         email = self.email, contrasenia = self.contrasenia)
         match res:
             case 1:
@@ -36,7 +37,18 @@ class Usuario():
         pbHash = hash_contra.hexdigest()
         return pbHash
 
-    def inicioSecion(cls, email: str, contrasenia: str):
-        res = db.select
+    def inicioSesion(cls, email: str, contrasenia: str) -> object | int:
+        datos = db.select('usuario', email = email, contrasenia = cls.sha1(cls, contrasenia))
+        
+        if type(datos) is tuple:
+            if len(datos) == 1:
+                usuario = Usuario(datos[0][1], datos[0][2], datos[0][3], datos[0][4], datos[0][0])
+                return usuario
+            else:
+                #No existe el usuario
+                return 1
+        else:
+            #Error al buscar usuario
+            return 2
 
 

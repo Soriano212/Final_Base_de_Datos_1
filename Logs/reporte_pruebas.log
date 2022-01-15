@@ -1,0 +1,11 @@
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsa', WHERE contrasenia='dsadas',
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsa', WHERE contrasenia='dsadas'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsa', AND contrasenia='dsadas'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsadas' AND contrasenia='dsadasdas'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='' AND contrasenia=''
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='hola'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario212@u.com' AND contrasenia='mario'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='hola'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario212@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando INSERT: INSERT INTO usuario(nombre,usuario,email,contrasenia) VALUES ('Juan Javer','Just_Juan','juanja@u.com','b49a5780a99ea81284fc0746a78f84a30e4d5c73')
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juanja@u.com' AND contrasenia='b49a5780a99ea81284fc0746a78f84a30e4d5c73'

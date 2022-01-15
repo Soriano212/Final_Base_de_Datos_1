@@ -4,7 +4,7 @@ import logging
 class DataBase:
     __instance = None
     
-    def __new__(cls: type[Self]) -> Self:
+    def __new__(cls):
         if DataBase.__instance is None:
             print('Nueva instancia')
             DataBase.__instance = object.__new__(cls)
@@ -63,9 +63,11 @@ class DataBase:
                 if cont == 0:
                     sql += ' WHERE '
                 else:
+                    sql = sql[:-1]
                     sql += ' AND '
-                
-                sql += r"{}='{}',".format(dato[1])
+                cont += 1
+                sql += r"{}='{}',".format(dato[0], dato[1])
+            sql = sql[:-1]
         
         logging.info('Realizando SELECT: '+sql)
         

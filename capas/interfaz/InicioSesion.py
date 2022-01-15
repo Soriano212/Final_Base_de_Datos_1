@@ -49,6 +49,7 @@ class Ui_InicioSesion(object):
         self.txt_contrasenia_sesion = QtWidgets.QLineEdit(self.tab_sesion)
         self.txt_contrasenia_sesion.setGeometry(QtCore.QRect(210, 210, 330, 26))
         self.txt_contrasenia_sesion.setObjectName("txt_contrasenia_sesion")
+        self.txt_contrasenia_sesion.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         
         self.btn_ingresar = QtWidgets.QPushButton(self.tab_sesion)
         self.btn_ingresar.setGeometry(QtCore.QRect(310, 260, 121, 41))
@@ -92,10 +93,6 @@ class Ui_InicioSesion(object):
         self.label_email_registro.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_email_registro.setObjectName("label_email_registro")
         
-        self.btn_registro = QtWidgets.QPushButton(self.tab_registro)
-        self.btn_registro.setGeometry(QtCore.QRect(40, 290, 121, 41))
-        self.btn_registro.setObjectName("btn_registro")
-        
         self.label_titulo_2 = QtWidgets.QLabel(self.tab_registro)
         self.label_titulo_2.setGeometry(QtCore.QRect(0, 0, 551, 51))
         font = QtGui.QFont()
@@ -105,13 +102,22 @@ class Ui_InicioSesion(object):
         self.label_titulo_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_titulo_2.setObjectName("label_titulo_2")
         
-        self.txt_contrasenia_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_contrasenia_registro.setGeometry(QtCore.QRect(210, 320, 330, 26))
-        self.txt_contrasenia_registro.setObjectName("txt_contrasenia_registro")
+        self.txt_nombre_registro = QtWidgets.QLineEdit(self.tab_registro)
+        self.txt_nombre_registro.setGeometry(QtCore.QRect(210, 117, 330, 26))
+        self.txt_nombre_registro.setObjectName("txt_nombre_registro")
+        
+        self.txt_usuario_registro = QtWidgets.QLineEdit(self.tab_registro)
+        self.txt_usuario_registro.setGeometry(QtCore.QRect(210, 184, 330, 26))
+        self.txt_usuario_registro.setObjectName("txt_usuario_registro")
         
         self.txt_email_registro = QtWidgets.QLineEdit(self.tab_registro)
         self.txt_email_registro.setGeometry(QtCore.QRect(210, 253, 330, 26))
         self.txt_email_registro.setObjectName("txt_email_registro")
+        
+        self.txt_contrasenia_registro = QtWidgets.QLineEdit(self.tab_registro)
+        self.txt_contrasenia_registro.setGeometry(QtCore.QRect(210, 320, 330, 26))
+        self.txt_contrasenia_registro.setObjectName("txt_contrasenia_registro")
+        self.txt_contrasenia_registro.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         
         self.label_image_usuario_2 = QtWidgets.QLabel(self.tab_registro)
         self.label_image_usuario_2.setGeometry(QtCore.QRect(10, 86, 171, 161))
@@ -119,14 +125,6 @@ class Ui_InicioSesion(object):
         self.label_image_usuario_2.setPixmap(QtGui.QPixmap("icons/lapiz.png"))
         self.label_image_usuario_2.setScaledContents(True)
         self.label_image_usuario_2.setObjectName("label_image_usuario_2")
-        
-        self.txt_usuario_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_usuario_registro.setGeometry(QtCore.QRect(210, 184, 330, 26))
-        
-        self.txt_usuario_registro.setObjectName("txt_usuario_registro")
-        self.txt_nombre_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_nombre_registro.setGeometry(QtCore.QRect(210, 117, 330, 26))
-        self.txt_nombre_registro.setObjectName("txt_nombre_registro")
         
         self.label_nombre_registro = QtWidgets.QLabel(self.tab_registro)
         self.label_nombre_registro.setGeometry(QtCore.QRect(210, 80, 331, 31))
@@ -137,6 +135,10 @@ class Ui_InicioSesion(object):
         self.label__usuario_registro.setGeometry(QtCore.QRect(210, 150, 331, 31))
         self.label__usuario_registro.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label__usuario_registro.setObjectName("label__usuario_registro")
+        
+        self.btn_registro = QtWidgets.QPushButton(self.tab_registro)
+        self.btn_registro.setGeometry(QtCore.QRect(40, 290, 121, 41))
+        self.btn_registro.setObjectName("btn_registro")
         
         InicioSesion.addTab(self.tab_registro, "")
 
