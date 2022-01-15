@@ -6,6 +6,7 @@ from capas.negocios.usuario import Usuario
 from capas.interfaz.DialogoAC import Ui_DialogoAC
 from capas.interfaz.InicioSesion import Ui_InicioSesion
 from capas.interfaz.Menu import Ui_Menu
+from capas.interfaz.CrearEncuesta import Ui_CrearEncuesta
 
 class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
     def __init__(self, parent=None) -> None:
@@ -111,8 +112,17 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         self.label_Usuario.setText(self.usuario.nombre)
         
         ## Botones
-        
         self.btn_cerrar_sesion.clicked.connect(self.cerrar_sesion)
+        self.btn_encuesta.clicked.connect(self.crear_encuesta)
+        
+        ## Menu
+        self.action_cerrar_sesion.triggered.connect(self.cerrar_sesion)
+        self.action_crear_encuesta.triggered.connect(self.crear_encuesta)
+
+    def crear_encuesta(self):
+        self.ven_crear_encuesta = VenCrearEncuesta(self.usuario)
+        self.ven_crear_encuesta.show()
+        self.ven_crear_encuesta.activateWindow()
 
     def cerrar_sesion(self):
         self.ven_dialogo.dialog("Aviso", "Desea Cerrar su Sesion actual?", 0, 0)
@@ -121,7 +131,12 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         if self.ven_dialogo.result() == 1:
             self.salir()
 
-
+class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
+    def __init__(self, usuario: Usuario, parent=None) -> None:
+        super(VenCrearEncuesta, self).__init__(parent)
+        self.setupUi(self)
+        
+        self.usuario = usuario
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)

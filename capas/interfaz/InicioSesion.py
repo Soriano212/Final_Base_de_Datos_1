@@ -43,11 +43,11 @@ class Ui_InicioSesion(object):
         self.label__contrasenia_sesion.setObjectName("label__contrasenia_sesion")
         
         self.txt_email_sesion = QtWidgets.QLineEdit(self.tab_sesion)
-        self.txt_email_sesion.setGeometry(QtCore.QRect(210, 143, 330, 26))
+        self.txt_email_sesion.setGeometry(QtCore.QRect(210, 143, 330, 30))
         self.txt_email_sesion.setObjectName("txt_email_sesion")
         
         self.txt_contrasenia_sesion = QtWidgets.QLineEdit(self.tab_sesion)
-        self.txt_contrasenia_sesion.setGeometry(QtCore.QRect(210, 210, 330, 26))
+        self.txt_contrasenia_sesion.setGeometry(QtCore.QRect(210, 210, 330, 30))
         self.txt_contrasenia_sesion.setObjectName("txt_contrasenia_sesion")
         self.txt_contrasenia_sesion.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         
@@ -103,19 +103,19 @@ class Ui_InicioSesion(object):
         self.label_titulo_2.setObjectName("label_titulo_2")
         
         self.txt_nombre_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_nombre_registro.setGeometry(QtCore.QRect(210, 117, 330, 26))
+        self.txt_nombre_registro.setGeometry(QtCore.QRect(210, 117, 330, 30))
         self.txt_nombre_registro.setObjectName("txt_nombre_registro")
         
         self.txt_usuario_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_usuario_registro.setGeometry(QtCore.QRect(210, 184, 330, 26))
+        self.txt_usuario_registro.setGeometry(QtCore.QRect(210, 184, 330, 30))
         self.txt_usuario_registro.setObjectName("txt_usuario_registro")
         
         self.txt_email_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_email_registro.setGeometry(QtCore.QRect(210, 253, 330, 26))
+        self.txt_email_registro.setGeometry(QtCore.QRect(210, 253, 330, 30))
         self.txt_email_registro.setObjectName("txt_email_registro")
         
         self.txt_contrasenia_registro = QtWidgets.QLineEdit(self.tab_registro)
-        self.txt_contrasenia_registro.setGeometry(QtCore.QRect(210, 320, 330, 26))
+        self.txt_contrasenia_registro.setGeometry(QtCore.QRect(210, 320, 330, 30))
         self.txt_contrasenia_registro.setObjectName("txt_contrasenia_registro")
         self.txt_contrasenia_registro.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
         
