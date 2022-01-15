@@ -17,21 +17,24 @@ class Ui_Menu(object):
         font.setPointSize(10)
         Menu.setFont(font)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../../icons/casa.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
+        icon.addPixmap(QtGui.QPixmap("icons/casa.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
         Menu.setWindowIcon(icon)
         Menu.setStyleSheet("background-color: rgb(255, 255, 255);")
         Menu.setWindowFilePath("")
+        
         self.centralwidget = QtWidgets.QWidget(Menu)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.centralwidget.setFont(font)
         self.centralwidget.setObjectName("centralwidget")
+        
         self.label_image_usuario = QtWidgets.QLabel(self.centralwidget)
         self.label_image_usuario.setGeometry(QtCore.QRect(10, 80, 110, 110))
         self.label_image_usuario.setText("")
-        self.label_image_usuario.setPixmap(QtGui.QPixmap("../../../icons/usuario.png"))
+        self.label_image_usuario.setPixmap(QtGui.QPixmap("icons/usuario.png"))
         self.label_image_usuario.setScaledContents(True)
         self.label_image_usuario.setObjectName("label_image_usuario")
+        
         self.label_Usuario = QtWidgets.QLabel(self.centralwidget)
         self.label_Usuario.setGeometry(QtCore.QRect(130, 110, 331, 51))
         font = QtGui.QFont()
@@ -39,6 +42,7 @@ class Ui_Menu(object):
         self.label_Usuario.setFont(font)
         self.label_Usuario.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_Usuario.setObjectName("label_Usuario")
+        
         self.label_titulo = QtWidgets.QLabel(self.centralwidget)
         self.label_titulo.setGeometry(QtCore.QRect(160, 10, 181, 51))
         font = QtGui.QFont()
@@ -47,11 +51,13 @@ class Ui_Menu(object):
         self.label_titulo.setFont(font)
         self.label_titulo.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_titulo.setObjectName("label_titulo")
+        
         self.line_1 = QtWidgets.QFrame(self.centralwidget)
         self.line_1.setGeometry(QtCore.QRect(10, 60, 461, 16))
         self.line_1.setFrameShape(QtWidgets.QFrame.Shape.HLine)
         self.line_1.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
         self.line_1.setObjectName("line_1")
+        
         self.btn_todas_encuestas = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.btn_todas_encuestas.setGeometry(QtCore.QRect(30, 230, 421, 101))
         font = QtGui.QFont()
@@ -62,16 +68,19 @@ class Ui_Menu(object):
         self.btn_todas_encuestas.setStyleSheet("background-color: qlineargradient(spread:pad, x1:1, y1:0.495, x2:0, y2:0.438, stop:0.0909091 rgba(255, 170, 255, 255), stop:0.988636 rgba(255, 255, 255, 255), stop:1 rgba(255, 255, 255, 255));\n"
 "\n"
 "")
+
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../../../icons/aplicaciones.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon1.addPixmap(QtGui.QPixmap("icons/aplicaciones.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_todas_encuestas.setIcon(icon1)
         self.btn_todas_encuestas.setIconSize(QtCore.QSize(77, 80))
         self.btn_todas_encuestas.setObjectName("btn_todas_encuestas")
+        
         self.line_2 = QtWidgets.QFrame(self.centralwidget)
         self.line_2.setGeometry(QtCore.QRect(10, 200, 461, 16))
         self.line_2.setFrameShape(QtWidgets.QFrame.Shape.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
         self.line_2.setObjectName("line_2")
+        
         self.btn_encuesta = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.btn_encuesta.setGeometry(QtCore.QRect(30, 340, 421, 101))
         font = QtGui.QFont()
@@ -83,12 +92,13 @@ class Ui_Menu(object):
 "\n"
 "")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../../../icons/editar.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon2.addPixmap(QtGui.QPixmap("icons/editar.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_encuesta.setIcon(icon2)
         self.btn_encuesta.setIconSize(QtCore.QSize(80, 80))
         self.btn_encuesta.setObjectName("btn_encuesta")
         self.btn_mis_encuestas = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.btn_mis_encuestas.setGeometry(QtCore.QRect(30, 450, 421, 101))
+        
         font = QtGui.QFont()
         font.setPointSize(26)
         font.setBold(False)
@@ -98,12 +108,13 @@ class Ui_Menu(object):
 "\n"
 "")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("../../../icons/noticias.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon3.addPixmap(QtGui.QPixmap("icons/noticias.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_mis_encuestas.setIcon(icon3)
         self.btn_mis_encuestas.setIconSize(QtCore.QSize(80, 80))
         self.btn_mis_encuestas.setObjectName("btn_mis_encuestas")
         self.btn_cerrar_sesion = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.btn_cerrar_sesion.setGeometry(QtCore.QRect(30, 560, 421, 101))
+        
         font = QtGui.QFont()
         font.setPointSize(26)
         font.setBold(False)
@@ -113,11 +124,13 @@ class Ui_Menu(object):
 "\n"
 "")
         icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap("../../../icons/hacia-atras.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon4.addPixmap(QtGui.QPixmap("icons/hacia-atras.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.btn_cerrar_sesion.setIcon(icon4)
         self.btn_cerrar_sesion.setIconSize(QtCore.QSize(80, 80))
         self.btn_cerrar_sesion.setObjectName("btn_cerrar_sesion")
+        
         Menu.setCentralWidget(self.centralwidget)
+        
         self.menubar = QtWidgets.QMenuBar(Menu)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 482, 28))
         font = QtGui.QFont()
@@ -126,11 +139,15 @@ class Ui_Menu(object):
         self.menubar.setStyleSheet("background-color: rgb(236, 236, 236);\n"
 "selection-background-color: rgb(191, 191, 191);")
         self.menubar.setObjectName("menubar")
+        
         self.menuMenu = QtWidgets.QMenu(self.menubar)
         self.menuMenu.setObjectName("menuMenu")
+        
         self.menuCuenta = QtWidgets.QMenu(self.menubar)
         self.menuCuenta.setObjectName("menuCuenta")
+        
         Menu.setMenuBar(self.menubar)
+        
         self.action_todas_ecuestas = QtGui.QAction(Menu)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -156,6 +173,7 @@ class Ui_Menu(object):
         font.setPointSize(12)
         self.action_cerrar_sesion.setFont(font)
         self.action_cerrar_sesion.setObjectName("action_cerrar_sesion")
+        
         self.menuMenu.addAction(self.action_todas_ecuestas)
         self.menuMenu.addAction(self.action_crear_encuesta)
         self.menuMenu.addAction(self.action_mis_Encuestas)

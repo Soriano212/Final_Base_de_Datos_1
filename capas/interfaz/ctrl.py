@@ -1,4 +1,3 @@
-import imp
 import sys
 from PyQt6 import QtCore, QtWidgets
 
@@ -8,13 +7,12 @@ from capas.interfaz.DialogoAC import Ui_DialogoAC
 from capas.interfaz.InicioSesion import Ui_InicioSesion
 from capas.interfaz.Menu import Ui_Menu
 
-usuario_cargado = None
-
 class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
     def __init__(self, parent=None) -> None:
         super(VenInicioSesion, self).__init__(parent)
         self.setupUi(self)
         self.ven_dialogo = VenDialogo()
+        self.ven_menu = None
         
         #Botones
         self.btn_registro.clicked.connect(self.registrarse)
@@ -69,6 +67,10 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
         
         if type(usuario) is Usuario:
             self.ven_dialogo.dialog("Aviso", "Inicio de Sesion correcto.", 1, 1)
+            self.ven_menu = VenMenu(self.cerrar_sesion, usuario)
+            self.hide()
+            self.ven_menu.show()
+            self.ven_dialogo.show()
             self.limpiar()
         else:
             match usuario:
@@ -88,13 +90,38 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
         self.txt_email_sesion.setText('')
         self.txt_contrasenia_sesion.setText('')
 
+    def cerrar_sesion(self):
+        self.ven_menu.close()
+        self.ven_menu = None
+        self.show()
+
 class VenDialogo(QtWidgets.QDialog, Ui_DialogoAC):
     def __init__(self, parent=None) -> None:
         super(VenDialogo, self).__init__(parent)
         self.setupUi(self)
 
 class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
-    pass
+    def __init__(self, funcion_cerrar, usuario: Usuario, parent=None) -> None:
+        super(VenMenu, self).__init__(parent)
+        self.setupUi(self)
+        self.ven_dialogo = VenDialogo()
+        self.usuario = usuario
+        self.salir = funcion_cerrar
+        
+        self.label_Usuario.setText(self.usuario.nombre)
+        
+        ## Botones
+        
+        self.btn_cerrar_sesion.clicked.connect(self.cerrar_sesion)
+
+    def cerrar_sesion(self):
+        self.ven_dialogo.dialog("Aviso", "Desea Cerrar su Sesion actual?", 0, 0)
+        self.ven_dialogo.exec()
+        
+        if self.ven_dialogo.result() == 1:
+            self.salir()
+
+
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)
