@@ -1,7 +1,9 @@
 import sys
 from PyQt6 import QtCore, QtWidgets
+from capas.interfaz.CrearPregunta import Ui_CrearPregunta
 
 from capas.negocios.usuario import Usuario
+from capas.negocios.encuesta import *
 
 from capas.interfaz.DialogoAC import Ui_DialogoAC
 from capas.interfaz.InicioSesion import Ui_InicioSesion
@@ -131,12 +133,68 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         if self.ven_dialogo.result() == 1:
             self.salir()
 
+class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
+    def __init__(self, encuesta: Encuesta, parent=None) -> None:
+        super(VenCrearPregunta, self).__init__(parent)
+        self.setupUi(self)
+        
+        self.ven_dialogo = VenDialogo()
+        
+        self.encuesta = encuesta
+        self.pregunta_texto = Abierta('Pregunta')
+        
+        ## Botones
+        self.btn_cambiar_texto.clicked.connect(self.cambiar_texto)
+
+    def crear_texto(self):
+        pass
+
+    def cambiar_texto(self):
+        titulo = self.txt_pregunta_texto.text()
+        if len(titulo) > 4:
+            self.pregunta_texto.enunciado = titulo
+            self.label_pregunta_texto_box.setText(titulo)
+            self.txt_pregunta_texto.setText('')
+            self.ven_dialogo.dialog("Correcto", "Titulo cambiado correctamente.", 1, 1)
+            self.ven_dialogo.show()
+        else:
+            self.ven_dialogo.dialog("Error", "El largo minimo del titulo es de 4.", 1, 2)
+            self.ven_dialogo.show()
+
+    def limpiar_texto(self):
+        self.txt_pregunta_texto.setText('')
+        self.label_pregunta_texto.setText('Pregunta')
+
 class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
     def __init__(self, usuario: Usuario, parent=None) -> None:
         super(VenCrearEncuesta, self).__init__(parent)
         self.setupUi(self)
         
         self.usuario = usuario
+        self.encuesta = Encuesta(self.label_titulo_encuesta.text())
+        
+        self.ven_dialogo = VenDialogo()
+        self.ven_crear_pregunta = VenCrearPregunta(self.encuesta)
+        
+        ## Botones
+        
+        self.btn_cambiar.clicked.connect(self.titulo)
+        self.btn_crear.clicked.connect(self.crear_pregunta)
+
+    def crear_pregunta(self):
+        self.ven_crear_pregunta.show()
+
+    def titulo(self):
+        titulo = self.txt_titulo.text()
+        if len(titulo) > 4:
+            self.encuesta.titulo = titulo
+            self.label_titulo_encuesta.setText(titulo)
+            self.txt_titulo.setText('')
+            self.ven_dialogo.dialog("Correcto", "Titulo cambiado correctamente.", 1, 1)
+            self.ven_dialogo.show()
+        else:
+            self.ven_dialogo.dialog("Error", "El largo minimo del titulo es de 4.", 1, 2)
+            self.ven_dialogo.show()
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)

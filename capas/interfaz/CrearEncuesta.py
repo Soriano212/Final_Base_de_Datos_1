@@ -96,39 +96,6 @@ class Ui_CrearEncuesta(object):
         
         ## Siguiente group vf
         
-        self.group_box_vf = QtWidgets.QGroupBox(self.scroll_widget)
-        self.group_box_vf.setMinimumSize(QtCore.QSize(661, 145))
-        self.group_box_vf.setMaximumSize(QtCore.QSize(661, 145))
-        font = QtGui.QFont()
-        font.setPointSize(17)
-        self.group_box_vf.setFont(font)
-        self.group_box_vf.setObjectName("group_box_vf")
-        
-        self.label_pregunta_vf = QtWidgets.QLabel(self.group_box_vf)
-        self.label_pregunta_vf.setGeometry(QtCore.QRect(10, 30, 631, 31))
-        font = QtGui.QFont()
-        font.setPointSize(16)
-        font.setBold(True)
-        self.label_pregunta_vf.setFont(font)
-        self.label_pregunta_vf.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.label_pregunta_vf.setObjectName("label_pregunta_vf")
-        
-        self.rdbtn_verdadero = QtWidgets.QRadioButton(self.group_box_vf)
-        self.rdbtn_verdadero.setGeometry(QtCore.QRect(20, 70, 131, 31))
-        self.rdbtn_verdadero.setObjectName("rdbtn_verdadero")
-        
-        self.btn_group = QtWidgets.QButtonGroup(MisEncuestas)
-        self.btn_group.setObjectName("btn_group")
-        self.btn_group.addButton(self.rdbtn_verdadero)
-        
-        self.rdbtn_falso = QtWidgets.QRadioButton(self.group_box_vf)
-        self.rdbtn_falso.setGeometry(QtCore.QRect(20, 100, 81, 31))
-        self.rdbtn_falso.setObjectName("rdbtn_falso")
-        
-        self.btn_group.addButton(self.rdbtn_falso)
-        
-        self.verticalLayout.addWidget(self.group_box_vf)
-        
         self.scrollArea.setWidget(self.scroll_widget)
         
         # Siguiente
@@ -226,7 +193,7 @@ class Ui_CrearEncuesta(object):
         self.retranslateUi(MisEncuestas)
         QtCore.QMetaObject.connectSlotsByName(MisEncuestas)
 
-    def imprimeGroup(self, scroll_area, vertical_layout, lista_group):
+    def recargarPreguntas(self, datos_preguntas):
         pass
 
     def retranslateUi(self, MisEncuestas):
@@ -238,10 +205,7 @@ class Ui_CrearEncuesta(object):
         self.label_pregunta_om.setText(_translate("MisEncuestas", "Pregunta"))
         self.rdbtn_op1.setText(_translate("MisEncuestas", "Opcion1"))
         self.rdbtn_op2.setText(_translate("MisEncuestas", "Opcion2"))
-        self.group_box_vf.setTitle(_translate("MisEncuestas", "2"))
-        self.label_pregunta_vf.setText(_translate("MisEncuestas", "Pregunta"))
-        self.rdbtn_verdadero.setText(_translate("MisEncuestas", "Verdadero"))
-        self.rdbtn_falso.setText(_translate("MisEncuestas", "Falso"))
+
         self.label_crear.setText(_translate("MisEncuestas", "Crear Encuesta"))
         self.btn_crear.setText(_translate("MisEncuestas", "Crear Pregunta"))
         self.label_titulo_encuesta.setText(_translate("MisEncuestas", "Título"))

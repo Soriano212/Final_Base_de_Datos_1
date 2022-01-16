@@ -23,3 +23,15 @@ INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alber212@gmail.c
 INFO:root:Log creado el: 2022-1-15_17-34-10
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsadsa' AND contrasenia='163cc62e57efd43c052b48bf154e5d2f5d2ccfc2'
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-15_19-14-6
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-15_19-14-49
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-15_19-19-4
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-15_19-26-33
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-15_19-28-33
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-15_19-51-33
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
