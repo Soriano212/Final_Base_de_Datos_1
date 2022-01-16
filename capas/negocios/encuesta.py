@@ -18,7 +18,7 @@ class Opcion():
         self.enuciado = enunciado
 
 class Cerrada(Pregunta):
-    def __init__(self, enunciado: str, seleccionar_varias: bool, pos_pregunta: int = 0) -> None:
+    def __init__(self, enunciado: str, seleccionar_varias: bool = False, pos_pregunta: int = 0) -> None:
         super().__init__(pos_pregunta, enunciado)
         self.seleccionar_varias = seleccionar_varias
         self.opciones = []

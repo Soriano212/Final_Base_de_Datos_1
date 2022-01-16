@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Menu(object):
     def setupUi(self, Menu):
         Menu.setObjectName("Menu")
-        Menu.resize(482, 695)
+        Menu.resize(482, 705)
         font = QtGui.QFont()
         font.setPointSize(10)
         Menu.setFont(font)
