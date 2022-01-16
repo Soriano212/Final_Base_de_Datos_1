@@ -10,7 +10,8 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_CrearPregunta(object):
-    def setupUi(self, CrearPregunta):
+    def setupUi(self, CrearPregunta, datos_om:tuple | None):
+        
         CrearPregunta.setObjectName("CrearPregunta")
         CrearPregunta.resize(673, 420)
         font = QtGui.QFont()
@@ -199,47 +200,10 @@ class Ui_CrearPregunta(object):
         self.scroll_area_om.setObjectName("scroll_area_om")
         
         self.scroll_widget_om= QtWidgets.QWidget()
-        self.scroll_widget_om.setGeometry(QtCore.QRect(0, 0, 679, 199))
-        self.scroll_widget_om.setObjectName("scroll_widget_om")
-        
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.scroll_widget_om)
-        self.verticalLayout.setObjectName("verticalLayout")
-        
-        self.groupBox = QtWidgets.QGroupBox(self.scroll_widget_om)
-        self.groupBox.setMinimumSize(QtCore.QSize(649, 159))
-        self.groupBox.setMaximumSize(QtCore.QSize(649, 300))
-        self.groupBox.setTitle("")
-        self.groupBox.setObjectName("groupBox")
-        
-        self.ckb_op3 = QtWidgets.QCheckBox(self.groupBox)
-        self.ckb_op3.setGeometry(QtCore.QRect(18, 110, 621, 31))
-        self.ckb_op3.setObjectName("ckb_op3")
-        
-        self.label_pregunta_om_box = QtWidgets.QLabel(self.groupBox)
-        self.label_pregunta_om_box.setGeometry(QtCore.QRect(10, 10, 631, 31))
-        font = QtGui.QFont()
-        font.setPointSize(16)
-        font.setBold(True)
-        self.label_pregunta_om_box.setFont(font)
-        self.label_pregunta_om_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.label_pregunta_om_box.setObjectName("label_pregunta_om_box")
-        
-        self.rdbtn_op2 = QtWidgets.QRadioButton(self.groupBox)
-        self.rdbtn_op2.setGeometry(QtCore.QRect(18, 80, 621, 31))
-        font = QtGui.QFont()
-        font.setPointSize(16)
-        self.rdbtn_op2.setFont(font)
-        self.rdbtn_op2.setObjectName("rdbtn_op2")
-        
-        self.rdbtn_op1 = QtWidgets.QRadioButton(self.groupBox)
-        self.rdbtn_op1.setGeometry(QtCore.QRect(18, 50, 621, 31))
-        font = QtGui.QFont()
-        font.setPointSize(16)
-        self.rdbtn_op1.setFont(font)
-        self.rdbtn_op1.setObjectName("rdbtn_op1")
-        
-        self.verticalLayout.addWidget(self.groupBox)
         self.scroll_area_om.setWidget(self.scroll_widget_om)
+        
+        ## Agregamos los datos de las opciones
+        self.recargar_opciones(datos_om)
         
         self.label_pregunta_om = QtWidgets.QLabel(self.tab_om)
         self.label_pregunta_om.setGeometry(QtCore.QRect(10, 10, 91, 31))
@@ -313,6 +277,64 @@ class Ui_CrearPregunta(object):
         CrearPregunta.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(CrearPregunta)
 
+    def recargar_opciones(self, datos: tuple[int, str, bool, list[tuple[int, str]] | None]):
+        self.scroll_widget_om.setParent(None)
+        
+        _translate = QtCore.QCoreApplication.translate
+        
+        self.scroll_widget_om= QtWidgets.QWidget()
+        self.scroll_widget_om.setGeometry(QtCore.QRect(0, 0, 679, 199))
+        self.scroll_widget_om.setObjectName("scroll_widget_om")
+        
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.scroll_widget_om)
+        self.verticalLayout.setObjectName("verticalLayout")
+        
+        tam = 181
+        if datos is not None:
+            if len(datos[3]) > 4:
+                tam += ((len(datos[3])-4)*30)
+        
+        self.groupBox = QtWidgets.QGroupBox(self.scroll_widget_om)
+        self.groupBox.setMinimumSize(QtCore.QSize(649, tam))
+        self.groupBox.setMaximumSize(QtCore.QSize(649, tam))
+        self.groupBox.setTitle("")
+        self.groupBox.setObjectName("groupBox")
+        
+        self.label_pregunta_om_box = QtWidgets.QLabel(self.groupBox)
+        self.label_pregunta_om_box.setGeometry(QtCore.QRect(10, 10, 631, 31))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        font.setBold(True)
+        self.label_pregunta_om_box.setFont(font)
+        self.label_pregunta_om_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.label_pregunta_om_box.setObjectName("label_pregunta_om_box")
+        if datos is not None:
+            self.label_pregunta_om_box.setText(_translate("CrearPregunta", datos[1]))
+        else:
+            self.label_pregunta_om_box.setText(_translate("CrearPregunta", 'Pregunta'))
+        
+        posy = 50
+        if datos is not None:
+            for op in datos[3]:
+                if not datos[2]:
+                    rdbtn_op = QtWidgets.QRadioButton(self.groupBox)
+                    rdbtn_op.setGeometry(QtCore.QRect(18, posy, 621, 31))
+                    font = QtGui.QFont()
+                    font.setPointSize(16)
+                    rdbtn_op.setFont(font)
+                    rdbtn_op.setObjectName("rdbtn_op")
+                    rdbtn_op.setText(_translate("CrearPregunta", op[1]))
+                else:
+                    ckb_op = QtWidgets.QCheckBox(self.groupBox)
+                    ckb_op.setGeometry(QtCore.QRect(18, posy, 621, 31))
+                    ckb_op.setObjectName("ckb_op")
+                    ckb_op.setText(_translate("CrearPregunta", op[1]))
+                posy += 30
+        
+        self.verticalLayout.addWidget(self.groupBox)
+        self.scroll_area_om.setWidget(self.scroll_widget_om)
+        
+
     def retranslateUi(self, CrearPregunta):
         _translate = QtCore.QCoreApplication.translate
         CrearPregunta.setWindowTitle(_translate("CrearPregunta", "Crear Pregunta"))
@@ -333,10 +355,7 @@ class Ui_CrearPregunta(object):
         self.btn_cambiar_vf.setText(_translate("CrearPregunta", "Cambiar"))
         CrearPregunta.setTabText(CrearPregunta.indexOf(self.tab_vf), _translate("CrearPregunta", "Verdadero y Falso"))
         self.btn_agregar_om.setText(_translate("CrearPregunta", "Agregar"))
-        self.ckb_op3.setText(_translate("CrearPregunta", "Opcion3"))
-        self.label_pregunta_om_box.setText(_translate("CrearPregunta", "Pregunta"))
-        self.rdbtn_op2.setText(_translate("CrearPregunta", "Opcion2"))
-        self.rdbtn_op1.setText(_translate("CrearPregunta", "Opcion1"))
+        
         self.label_pregunta_om.setText(_translate("CrearPregunta", "Pregunta:"))
         self.label_prev_om.setText(_translate("CrearPregunta", "Previsualización"))
         self.btn_cambiar_om.setText(_translate("CrearPregunta", "Cambiar"))

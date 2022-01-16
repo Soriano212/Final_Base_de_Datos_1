@@ -136,7 +136,7 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
 class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
     def __init__(self, encuesta: Encuesta, funcion_recargar, parent=None) -> None:
         super(VenCrearPregunta, self).__init__(parent)
-        self.setupUi(self)
+        self.setupUi(self, None)
         
         self.ven_dialogo = VenDialogo()
         self.funcion_recargar = funcion_recargar
@@ -145,7 +145,6 @@ class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
         self.pregunta_texto = Abierta('Pregunta')
         self.pregunta_vf = Cerrada('Pregunta')
         self.pregunta_om = Cerrada('Pregunta')
-        self.lista_opciones = []
         
         ## Botones
         self.btn_cambiar_texto.clicked.connect(self.cambiar_texto)
@@ -154,12 +153,39 @@ class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
         
         self.btn_cambiar_vf.clicked.connect(self.cambiar_vf)
         self.btn_limpiar_vf.clicked.connect(self.limpiar_vf)
+        self.btn_agregar_vf.clicked.connect(self.crear_vf)
         
         self.btn_cambiar_om.clicked.connect(self.cambiar_om)
         self.btn_limpiar_om.clicked.connect(self.limpiar_om)
+        self.btn_agregarop_om.clicked.connect(self.agregar_opcion)
+        self.ckb_varias.clicked.connect(self.seleccionar_varias)
+        self.btn_agregar_om.clicked.connect(self.crear_om)
+
+    def agregar_opcion(self):
+        titulo = self.txt_opcion_om.text()
+        if len(titulo) >= 4:
+            op = Opcion(titulo)
+            self.pregunta_om.agregar_opcion(op)
+            self.recargar_om()
+            
+            self.ven_dialogo.dialog("Correcto", "Opcion agregada correctamente.", 1, 1)
+            self.ven_dialogo.show()
+        else:
+            self.ven_dialogo.dialog("Error", "El largo minimo del texto de la opcion es de 4.", 1, 2)
+            self.ven_dialogo.show()
+
+    def recargar_om(self):
+        self.recargar_opciones(self.pregunta_om.datos_mostrar())
+
+    def seleccionar_varias(self):
+        if self.ckb_varias.isChecked():
+            self.pregunta_om.seleccionar_varias = True
+        else:
+            self.pregunta_om.seleccionar_varias = False
+        self.recargar_om()
 
     def crear_texto(self):
-        self.ven_dialogo.dialog("Crear", "Desea crear la pregunta de texto ingresada?", 0, 0)
+        self.ven_dialogo.dialog("Crear", "Desea crear la pregunta de Texto?", 0, 3)
         self.ven_dialogo.exec()
         
         if self.ven_dialogo.result() == 1:
@@ -167,40 +193,66 @@ class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
             self.funcion_recargar()
             self.close()
 
+    def crear_vf(self):
+        self.ven_dialogo.dialog("Crear", "Desea crear la pregunta de Verdadero y Falso?", 0, 3)
+        self.ven_dialogo.exec()
+        
+        if self.ven_dialogo.result() == 1:
+            opcion_v = Opcion('Verdadero')
+            opcion_f = Opcion('Falso')
+            self.pregunta_vf.agregar_opcion(opcion_v)
+            self.pregunta_vf.agregar_opcion(opcion_f)
+            self.encuesta.agregar_pregunta(self.pregunta_vf)
+            self.funcion_recargar()
+            self.close()
+
+    def crear_om(self):
+        if len(self.pregunta_om.opciones) > 0:
+            self.ven_dialogo.dialog("Crear", "Desea crear la pregunta de Opcion Multiple?", 0, 3)
+            self.ven_dialogo.exec()
+            
+            if self.ven_dialogo.result() == 1:
+                self.encuesta.agregar_pregunta(self.pregunta_om)
+                self.funcion_recargar()
+                self.close()
+        else:
+            self.ven_dialogo.dialog("Error", "No puede agregar una pregunta sin opciones.", 1, 2)
+            self.ven_dialogo.show()
+
     def cambiar_texto(self):
         titulo = self.txt_pregunta_texto.text()
-        if len(titulo) > 4:
+        if len(titulo) >= 4:
             self.pregunta_texto.enunciado = titulo
             self.label_pregunta_texto_box.setText(titulo)
             self.txt_pregunta_texto.setText('')
-            self.ven_dialogo.dialog("Correcto", "Titulo cambiado correctamente.", 1, 1)
+            self.ven_dialogo.dialog("Correcto", "Enunciado cambiado correctamente.", 1, 1)
             self.ven_dialogo.show()
         else:
-            self.ven_dialogo.dialog("Error", "El largo minimo del titulo es de 4.", 1, 2)
+            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 4.", 1, 2)
             self.ven_dialogo.show()
 
     def cambiar_vf(self):
         titulo = self.txt_pregunta_vf.text()
-        if len(titulo) > 4:
+        if len(titulo) >= 4:
             self.pregunta_vf.enunciado = titulo
             self.label_pregunta_vf_box.setText(titulo)
             self.txt_pregunta_vf.setText('')
-            self.ven_dialogo.dialog("Correcto", "Titulo cambiado correctamente.", 1, 1)
+            self.ven_dialogo.dialog("Correcto", "Enunciado cambiado correctamente.", 1, 1)
             self.ven_dialogo.show()
         else:
-            self.ven_dialogo.dialog("Error", "El largo minimo del titulo es de 4.", 1, 2)
+            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 4.", 1, 2)
             self.ven_dialogo.show()
 
     def cambiar_om(self):
         titulo = self.txt_pregunta_om.text()
-        if len(titulo) > 4:
+        if len(titulo) >= 4:
             self.pregunta_om.enunciado = titulo
             self.label_pregunta_om_box.setText(titulo)
             self.txt_pregunta_om.setText('')
-            self.ven_dialogo.dialog("Correcto", "Titulo cambiado correctamente.", 1, 1)
+            self.ven_dialogo.dialog("Correcto", "Enunciado cambiado correctamente.", 1, 1)
             self.ven_dialogo.show()
         else:
-            self.ven_dialogo.dialog("Error", "El largo minimo del titulo es de 4.", 1, 2)
+            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 4.", 1, 2)
             self.ven_dialogo.show()
 
     def limpiar_texto(self):
@@ -217,8 +269,9 @@ class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
         self.txt_pregunta_om.setText('')
         self.txt_opcion_om.setText('')
         self.label_pregunta_om_box.setText('Pregunta')
-        self.pregunta_om.enunciado = 'Pregunta'
-        self.lista_opciones = []
+        self.ckb_varias.setChecked(False)
+        self.pregunta_om = Cerrada('Pregunta')
+        self.recargar_om()
 
 class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
     def __init__(self, usuario: Usuario, parent=None) -> None:
