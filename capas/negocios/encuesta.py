@@ -59,3 +59,13 @@ class Encuesta():
             pregunta.pos_pregunta = self.preguntas[-1].pos_pregunta + 1
         
         self.preguntas.append(pregunta)
+
+    def datos_mostrar(self) -> tuple[int, str, str, list[ tuple[int, str] | tuple[int, str, bool, list[tuple[int, str]]] ]]:
+        datos = []
+        pre: Pregunta
+        for pre in self.preguntas:
+            datos.append(pre.datos_mostrar())
+        return (self.id_encuesta, self.titulo, self.fecha_creacion, datos)
+    
+    def __str__(self):
+        return 'Encuesta(Id: {e.id_encuesta}, Titulo: {e.titulo}, Fecha_Creacion: {e.fecha_creacion}, Numero_Preguntas: {l})'.format(e=self, l=len(self.preguntas))

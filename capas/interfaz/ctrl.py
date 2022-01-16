@@ -276,7 +276,7 @@ class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
 class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
     def __init__(self, usuario: Usuario, parent=None) -> None:
         super(VenCrearEncuesta, self).__init__(parent)
-        self.setupUi(self)
+        self.setupUi(self, None)
         
         self.usuario = usuario
         self.encuesta = Encuesta(self.label_titulo_encuesta.text())
@@ -288,6 +288,7 @@ class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
         
         self.btn_cambiar.clicked.connect(self.titulo)
         self.btn_crear.clicked.connect(self.crear_pregunta)
+        self.btn_publicar.clicked.connect(self.publicar)
 
     def crear_pregunta(self):
         self.ven_crear_pregunta = VenCrearPregunta(self.encuesta, self.recargar)
@@ -306,8 +307,12 @@ class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
             self.ven_dialogo.show()
 
     def recargar(self):
+        self.recargar_preguntas(self.encuesta.datos_mostrar())
         self.ven_dialogo.dialog("Correcto", "Pregunta Agregada.", 1, 1)
         self.ven_dialogo.show()
+
+    def publicar(self):
+        print(self.encuesta)
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)
