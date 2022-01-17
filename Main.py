@@ -3,13 +3,13 @@
 # Juan Malo
 
 import capas.interfaz.ctrl as ctrl
+from capas.negocios.encuesta import Abierta, Pregunta
 
 import capas.negocios.usuario as us
 
 from datetime import date, datetime
 import logging
 import os
-
 
 try:
     os.mkdir('Logs')

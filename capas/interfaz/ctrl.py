@@ -122,7 +122,7 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         self.action_crear_encuesta.triggered.connect(self.crear_encuesta)
 
     def crear_encuesta(self):
-        self.ven_crear_encuesta = VenCrearEncuesta(self.usuario)
+        self.ven_crear_encuesta = VenCrearEncuesta(self.usuario, self.publicar_encuesta)
         self.ven_crear_encuesta.show()
         self.ven_crear_encuesta.activateWindow()
 
@@ -132,6 +132,10 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         
         if self.ven_dialogo.result() == 1:
             self.salir()
+
+    def publicar_encuesta(self):
+        self.ven_dialogo.dialog("Correcto", "Encuesta publicada Correctamente.", 1, 1)
+        self.ven_dialogo.show()
 
 class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
     def __init__(self, encuesta: Encuesta, funcion_recargar, parent=None) -> None:
@@ -274,10 +278,11 @@ class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
         self.recargar_om()
 
 class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
-    def __init__(self, usuario: Usuario, parent=None) -> None:
+    def __init__(self, usuario: Usuario, funcion_publicar, parent=None) -> None:
         super(VenCrearEncuesta, self).__init__(parent)
         self.setupUi(self, None)
         
+        self.funcion_publicar = funcion_publicar
         self.usuario = usuario
         self.encuesta = Encuesta(self.label_titulo_encuesta.text())
         
@@ -312,7 +317,20 @@ class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
         self.ven_dialogo.show()
 
     def publicar(self):
-        print(self.encuesta)
+        res = self.encuesta.publicar(self.usuario.cedula)
+        if res == 2:
+            self.ven_dialogo.dialog("Error", "El titulo de la encuesta ya esta registrado por el\nmismo Usuario.", 1, 2)
+            self.ven_dialogo.show()
+        elif res != 0:
+            self.ven_dialogo.dialog("Error", "Error al ingresar la encuesta a la base de datos.", 1, 2)
+            self.ven_dialogo.show()
+        else:
+            self.ven_dialogo.dialog("Publicar", "Desea publicar esta encuesta?\nYa no se podra modificar en un futuro.", 0, 3)
+            self.ven_dialogo.exec()
+            
+            if self.ven_dialogo.result() == 1:
+                self.funcion_publicar()
+                self.close()
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)

@@ -1,84 +1,52 @@
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsa', WHERE contrasenia='dsadas',
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsa', WHERE contrasenia='dsadas'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsa', AND contrasenia='dsadas'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsadas' AND contrasenia='dsadasdas'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='' AND contrasenia=''
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='hola'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario212@u.com' AND contrasenia='mario'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='hola'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario212@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Realizando INSERT: INSERT INTO usuario(nombre,usuario,email,contrasenia) VALUES ('Juan Javer','Just_Juan','juanja@u.com','b49a5780a99ea81284fc0746a78f84a30e4d5c73')
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juanja@u.com' AND contrasenia='b49a5780a99ea81284fc0746a78f84a30e4d5c73'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmial.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmial.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmial.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario2@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='morir@gmail.com' AND contrasenia='99800b85d3383e3a2fb45eb7d0066a4879a9dad0'
-INFO:root:Realizando INSERT: INSERT INTO usuario(cedula,nombre,email,contrasenia) VALUES ('0150440378','Alberto Soriano','alber212@gmail.com','d033e22ae348aeb5660fc2140aec35850c4da997')
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alber212@gmail.com' AND contrasenia='d033e22ae348aeb5660fc2140aec35850c4da997'
-INFO:root:Log creado el: 2022-1-15_17-34-10
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='dsadsa' AND contrasenia='163cc62e57efd43c052b48bf154e5d2f5d2ccfc2'
+INFO:root:Log creado el: 2022-1-17_0-45-6
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_19-14-6
+INFO:root:Log creado el: 2022-1-17_0-46-12
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_19-14-49
+INFO:root:Realizando INSERT: INSERT INTO cerrada(titulo,cedula) VALUES ('Probando','1720688918')
+WARNING:root:Error De Operacion: (1054, "Unknown column 'titulo' in 'field list'")
+WARNING:root:Error al registrar la encuesta.
+INFO:root:Log creado el: 2022-1-17_0-52-7
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_19-19-4
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Como estas','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='' AND contrasenia='da39a3ee5e6b4b0d3255bfef95601890afd80709'
+INFO:root:Log creado el: 2022-1-17_0-55-10
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_19-26-33
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 2
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('2','1','Como estas')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('2','2','Si o si','False')
+INFO:root:Log creado el: 2022-1-17_0-58-51
+INFO:root:Log creado el: 2022-1-17_0-59-13
+INFO:root:Log creado el: 2022-1-17_1-1-12
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_19-28-33
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_19-51-33
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_19-55-28
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_19-58-33
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@gmail.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_22-18-47
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_22-19-17
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_22-19-54
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-15_22-21-28
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-20-1
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-20-55
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-23-42
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-25-24
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-29-11
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-31-12
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-36-6
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-38-2
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-38-39
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-39-24
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_0-40-21
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_1-46-58
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_1-48-22
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_1-49-42
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_1-52-44
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_1-54-2
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
-INFO:root:Log creado el: 2022-1-16_2-7-51
-INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 3
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('3','1','Hola como estas')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('3','2','Q mas','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','1','Verdadero','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','2','Falso','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('3','3','Color','1')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','1','Verde','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','2','Azul','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','3','Amarillo','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('3','4','Comer','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','1','Si quiero','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','2','No quiero','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','3','Morir','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='' AND contrasenia='da39a3ee5e6b4b0d3255bfef95601890afd80709'

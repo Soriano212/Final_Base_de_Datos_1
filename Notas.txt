@@ -3,5 +3,10 @@ Instalar la libreria PyMySQL en la consola de Python.
 
 Usuarios:
 _______________
+
+Email:               Contrasenia:
+mario@u.com          mario
+juana@u.com          juana
+alber212@gmail.com   admin
 _______________
 

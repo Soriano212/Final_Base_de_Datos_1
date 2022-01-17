@@ -1,5 +1,5 @@
 import hashlib
-
+import logging
 from capas.datos.database import DataBase
 
 db = DataBase()
@@ -15,17 +15,19 @@ class Usuario():
         return 'Usuario(Cedula: {u.cedula}, Nombre: {u.nombre}, Email: {u.email}, Contraseña: {u.contrasenia})'.format(u = self)
 
     def registrarUsuario(self) -> int:
-        res = db.insert('usuario', cedula = self.cedula, nombre = self.nombre,
-                        email = self.email, contrasenia = self.contrasenia)
+        res = db.insert('usuario', cedula = self.cedula, nombre = self.nombre, email = self.email, contrasenia = self.contrasenia)
+        
         match res:
             case 1:
-                print('Error al registrar usuario.')
+                logging.info('Error al registrar usuario.')
+                db.rollback()
                 return 1
             case 2:
-                print('El email ya se encuentra registrado.')
+                logging.info('El email ya se encuentra registrado.')
+                db.rollback()
                 return 2
             case 0:
-                print('Usuario registrado.')
+                logging.info('Usuario registrado.')
                 db.commit()
                 return 0
 
@@ -48,5 +50,3 @@ class Usuario():
         else:
             #Error al buscar usuario
             return 2
-
-
