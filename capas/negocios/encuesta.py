@@ -1,4 +1,4 @@
-from lib2to3.pgen2.token import OP
+from datetime import datetime
 import logging
 import re
 from capas.datos.database import DataBase
@@ -98,10 +98,11 @@ class Cerrada(Pregunta):
                 return 0
 
 class Encuesta():
-    def __init__(self, titulo: str, fecha_creacion: str = '', id_encuesta: int = 0) -> None:
+    def __init__(self, titulo: str, fecha_creacion: datetime = None, id_encuesta: int = 0, cedula: str = '') -> None:
         self.id_encuesta = id_encuesta
         self.fecha_creacion = fecha_creacion
         self.titulo = titulo
+        self.cedula = cedula
         self.preguntas = []
 
     def agregar_pregunta(self, pregunta: Pregunta):
@@ -164,3 +165,33 @@ class Encuesta():
                 db.commit()
                 return 0
 
+class ListaEncuestas():
+    def __init__(self):
+        self.lista = []
+
+    def datos_mostrar(self) -> list[tuple[str, str, str, str]]:
+        datos = []
+        dato: Encuesta
+        for dato in self.lista:
+            tupla = (dato.id_encuesta, dato.titulo, str(dato.fecha_creacion), dato.cedula)
+            datos.append(tupla)
+        return datos
+
+    def cargar(self, cedula: str = '', titulo: str = '', fecha: str = ''):
+        
+        self.lista.clear()
+        cedula = '%'+cedula+'%'
+        titulo = '%'+titulo+'%'
+        fecha = '%'+fecha+'%'
+        
+        datos = db.select('encuesta', cedula = cedula, titulo = titulo, fecha = fecha)
+        
+        if type(datos) is tuple:
+            
+            for dato in datos:
+                encuesta = Encuesta(dato[1], dato[2], dato[0], dato[3])
+                self.lista.append(encuesta)
+            return 0
+        else:
+            #Error al cargar encuestas
+            return 1
