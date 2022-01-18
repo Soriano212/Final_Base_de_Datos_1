@@ -471,3 +471,23 @@ INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id
 INFO:root:Error de Integridad: (1062, "Duplicate entry '1720688918-1-3' for key 'responde_abierta.cedula'")
 WARNING:root:Error la clave primaria de la respuesta abierta ya esta registrada.
 WARNING:root:Error la clave primaria de una respuesta ya esta registrada.
+INFO:root:Log creado el: 2022-1-18_2-47-32
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='3'
+INFO:root:Log creado el: 2022-1-18_2-49-5
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'

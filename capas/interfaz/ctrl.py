@@ -459,11 +459,11 @@ class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
             if grupo[1].isChecked():
                 grupo[1].setChecked(False)
                 
-                print("Boton Precionado, ID_encuesta:", grupo[0])
+                respuestas = ListaRespuestas()
+                respuestas.recuperar(grupo[0])
                 
                 return True
         return False
-
 
 class VenResponderEncuesta(QtWidgets.QWidget, Ui_ResponderEncuesta):
     def __init__(self, id_encuesta: str, cedula: str, funcion_mensaje, funcion_correcto, parent = None) -> None:
@@ -478,7 +478,6 @@ class VenResponderEncuesta(QtWidgets.QWidget, Ui_ResponderEncuesta):
             self.funcion_correcto = funcion_correcto
         else:
             funcion_mensaje()
-        
 
     def responder(self):
         lista = ListaRespuestas()
@@ -505,7 +504,7 @@ class VenResponderEncuesta(QtWidgets.QWidget, Ui_ResponderEncuesta):
                 self.ven_dialogo.dialog("Error", "Error al guardar los datos.", 1, 4)
                 self.ven_dialogo.show()
             case 2:
-                self.ven_dialogo.dialog("Error", "Error al guardar los datos.", 1, 4)
+                self.ven_dialogo.dialog("Error", "El usuario ya ha respondido esta encuesta.", 1, 4)
                 self.ven_dialogo.show()
             case -1:
                 self.ven_dialogo.dialog("Error", "Rellene minimo una pregunta.", 1, 2)
