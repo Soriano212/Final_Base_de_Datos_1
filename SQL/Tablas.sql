@@ -56,7 +56,6 @@ CREATE TABLE escoge_opcion(
     pos_opcion INTEGER UNSIGNED NOT NULL,
     pos_pregunta INTEGER UNSIGNED NOT NULL,
     id_encuesta INTEGER UNSIGNED NOT NULL,
-    respuesta TEXT,
 
     FOREIGN KEY (cedula) REFERENCES usuario(cedula),
     FOREIGN KEY (pos_opcion, pos_pregunta, id_encuesta) REFERENCES opcion(pos_opcion, pos_pregunta, id_encuesta),

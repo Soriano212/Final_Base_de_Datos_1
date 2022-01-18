@@ -7,6 +7,7 @@ from capas.interfaz.TodasEncuestas import Ui_TodasEncuestas
 
 from capas.negocios.usuario import *
 from capas.negocios.encuesta import *
+from capas.negocios.respuesta import *
 
 from capas.interfaz.DialogoAC import Ui_DialogoAC
 from capas.interfaz.InicioSesion import Ui_InicioSesion
@@ -134,7 +135,7 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         self.ven_crear_encuesta.activateWindow()
 
     def todas_encuestas(self):
-        self.ven_todas_encuestas = VenTodasEncuestas()
+        self.ven_todas_encuestas = VenTodasEncuestas(self.usuario.cedula)
         self.ven_todas_encuestas.show()
         self.ven_todas_encuestas.activateWindow()
 
@@ -350,10 +351,11 @@ class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
                 self.close()
 
 class VenTodasEncuestas(QtWidgets.QWidget, Ui_TodasEncuestas):
-    def __init__(self, parent = None) -> None:
+    def __init__(self, cedula:str, parent = None) -> None:
         super(VenTodasEncuestas, self).__init__(parent)
         self.setupUi(self, [], {})
         self.ven_dialogo = VenDialogo()
+        self.cedula = cedula
         
         self.usuarios = ListaUsuarios()
         self.usuarios.cargar()
@@ -405,7 +407,7 @@ class VenTodasEncuestas(QtWidgets.QWidget, Ui_TodasEncuestas):
             if grupo[1].isChecked():
                 grupo[1].setChecked(False)
                 
-                self.ven_responder_encuesta = VenResponderEncuesta(grupo[0], self.mensaje)
+                self.ven_responder_encuesta = VenResponderEncuesta(grupo[0], self.cedula, self.mensaje, self.correcto)
                 self.ven_responder_encuesta.show()
                 
                 return True
@@ -414,6 +416,11 @@ class VenTodasEncuestas(QtWidgets.QWidget, Ui_TodasEncuestas):
     def mensaje(self):
         self.ven_responder_encuesta.close()
         self.ven_dialogo.dialog("Error", "Error al cargar la encuesta.", 1, 4)
+        self.ven_dialogo.show()
+
+    def correcto(self):
+        self.ven_responder_encuesta.close()
+        self.ven_dialogo.dialog("Correcto", "Datos ingresado correctamente.", 1, 1)
         self.ven_dialogo.show()
 
 class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
@@ -457,16 +464,54 @@ class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
                 return True
         return False
 
+
 class VenResponderEncuesta(QtWidgets.QWidget, Ui_ResponderEncuesta):
-    def __init__(self, id_encuesta: str, funcion_mensaje, parent = None) -> None:
+    def __init__(self, id_encuesta: str, cedula: str, funcion_mensaje, funcion_correcto, parent = None) -> None:
         super(VenResponderEncuesta, self).__init__(parent)
         self.encuesta = Encuesta.recuperar(Encuesta, id_encuesta)
+        self.cedula = cedula
+        self.ven_dialogo = VenDialogo()
         
         if type(self.encuesta) is Encuesta:
             self.setupUi(self, self.encuesta.datos_mostrar())
+            self.btn_publicar.clicked.connect(self.responder)
+            self.funcion_correcto = funcion_correcto
         else:
             funcion_mensaje()
         
+
+    def responder(self):
+        lista = ListaRespuestas()
+        
+        for grupo in self.lista_abiertas:
+            if len(grupo[2].toPlainText()) > 0:
+                respuesta = RespondeAbierta(self.cedula, grupo[0], grupo[1], grupo[2].toPlainText())
+                lista.agregar_respuesta(respuesta)
+            else:
+                self.ven_dialogo.dialog("Error", "Rellene todos los campos de texto.", 1, 2)
+                self.ven_dialogo.show()
+                return
+        
+        
+        for grupo in self.lista_opciones:
+            if grupo[3].isChecked():
+                respuesta = EscogeOpcion(self.cedula, grupo[0], grupo[1], grupo[2])
+                lista.agregar_respuesta(respuesta)
+        
+        res = lista.respoder()
+        
+        match res:
+            case 1:
+                self.ven_dialogo.dialog("Error", "Error al guardar los datos.", 1, 4)
+                self.ven_dialogo.show()
+            case 2:
+                self.ven_dialogo.dialog("Error", "Error al guardar los datos.", 1, 4)
+                self.ven_dialogo.show()
+            case -1:
+                self.ven_dialogo.dialog("Error", "Rellene minimo una pregunta.", 1, 2)
+                self.ven_dialogo.show()
+            case 0:
+                self.funcion_correcto()
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)

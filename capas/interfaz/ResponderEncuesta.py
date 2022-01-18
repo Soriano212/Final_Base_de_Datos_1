@@ -124,7 +124,8 @@ class Ui_ResponderEncuesta(object):
                     txt_texto.setFont(font)
                     txt_texto.setObjectName("txt_texto")
                     
-                    
+                    tupla = (dato[0] ,datos_preguntas[0], txt_texto)
+                    self.lista_abiertas.append(tupla)
                     self.verticalLayout.addWidget(group_box_texto)
                 
                 else:
@@ -156,6 +157,7 @@ class Ui_ResponderEncuesta(object):
                     label_pregunta_om.setObjectName("label_pregunta_om")
                     label_pregunta_om.setText(_translate("CrearEncuesta", str(dato[1])))
                     
+                    
                     posy = 70
                     if opciones is not None:
                         for op in opciones:
@@ -167,12 +169,19 @@ class Ui_ResponderEncuesta(object):
                                 rdbtn_op.setFont(font)
                                 rdbtn_op.setObjectName("rdbtn_op")
                                 rdbtn_op.setText(_translate("CrearEncuesta", op[1]))
+                                
+                                tupla = (op[0], dato[0], datos_preguntas[0], rdbtn_op)
+                                self.lista_opciones.append(tupla)
                             else:
                                 ckb_op = QtWidgets.QCheckBox(group_box_om)
                                 ckb_op.setGeometry(QtCore.QRect(18, posy, 621, 31))
                                 ckb_op.setObjectName("ckb_op")
                                 ckb_op.setText(_translate("CrearEncuesta", op[1]))
+                                
+                                tupla = (op[0], dato[0], datos_preguntas[0], ckb_op)
+                                self.lista_opciones.append(tupla)
                             posy += 30
+                    
                     
                     self.verticalLayout.addWidget(group_box_om)
         
