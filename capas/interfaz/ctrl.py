@@ -2,6 +2,7 @@ import sys
 from PyQt6 import QtCore, QtWidgets
 from capas.interfaz.CrearPregunta import Ui_CrearPregunta
 from capas.interfaz.MisEncuestas import Ui_MisEncuestas
+from capas.interfaz.ResponderEncuesta import Ui_ResponderEncuesta
 from capas.interfaz.TodasEncuestas import Ui_TodasEncuestas
 
 from capas.negocios.usuario import *
@@ -352,6 +353,7 @@ class VenTodasEncuestas(QtWidgets.QWidget, Ui_TodasEncuestas):
     def __init__(self, parent = None) -> None:
         super(VenTodasEncuestas, self).__init__(parent)
         self.setupUi(self, [], {})
+        self.ven_dialogo = VenDialogo()
         
         self.usuarios = ListaUsuarios()
         self.usuarios.cargar()
@@ -403,10 +405,16 @@ class VenTodasEncuestas(QtWidgets.QWidget, Ui_TodasEncuestas):
             if grupo[1].isChecked():
                 grupo[1].setChecked(False)
                 
-                print("Boton Precionado, ID_encuesta:", grupo[0])
+                self.ven_responder_encuesta = VenResponderEncuesta(grupo[0], self.mensaje)
+                self.ven_responder_encuesta.show()
                 
                 return True
         return False
+
+    def mensaje(self):
+        self.ven_responder_encuesta.close()
+        self.ven_dialogo.dialog("Error", "Error al cargar la encuesta.", 1, 4)
+        self.ven_dialogo.show()
 
 class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
     def __init__(self, usuario: Usuario, parent = None) -> None:
@@ -449,6 +457,16 @@ class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
                 return True
         return False
 
+class VenResponderEncuesta(QtWidgets.QWidget, Ui_ResponderEncuesta):
+    def __init__(self, id_encuesta: str, funcion_mensaje, parent = None) -> None:
+        super(VenResponderEncuesta, self).__init__(parent)
+        self.encuesta = Encuesta.recuperar(Encuesta, id_encuesta)
+        
+        if type(self.encuesta) is Encuesta:
+            self.setupUi(self, self.encuesta.datos_mostrar())
+        else:
+            funcion_mensaje()
+        
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)

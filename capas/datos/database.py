@@ -67,7 +67,7 @@ class DataBase:
                     sql += ' AND '
                 cont += 1
                 
-                if dato[1][0] == '%' or dato[1][-1] == '%':
+                if str(dato[1])[0] == '%' or str(dato[1])[-1] == '%':
                     sql += r"{} like '{}',".format(dato[0], dato[1])
                 else:
                     sql += r"{}='{}',".format(dato[0], dato[1])
