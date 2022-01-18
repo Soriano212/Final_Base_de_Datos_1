@@ -50,3 +50,34 @@ class Usuario():
         else:
             #Error al buscar usuario
             return 2
+
+class ListaUsuarios():
+    def __init__(self) -> None:
+        self.lista = []
+
+    def cargar(self):
+        self.lista.clear()
+        datos = db.select('usuario', 'cedula', 'nombre')
+        
+        if type(datos) is tuple:
+            for dato in datos:
+                usuario = Usuario(dato[0], dato[1], '', '')
+                self.lista.append(usuario)
+            return 0
+        else:
+            return 1
+
+    def diccionario(self) -> dict[str, str]:
+        datos = []
+        usu: Usuario
+        for usu in self.lista:
+            datos.append((usu.cedula, usu.nombre))
+        return dict(datos)
+
+    def buscar_cedula(self, cedula: str) -> Usuario | None:
+        usu: Usuario
+        for usu in self.lista:
+            if usu.cedula == cedula:
+                return usu
+        
+        return None

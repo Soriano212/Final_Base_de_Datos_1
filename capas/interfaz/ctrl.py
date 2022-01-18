@@ -1,8 +1,9 @@
 import sys
 from PyQt6 import QtCore, QtWidgets
 from capas.interfaz.CrearPregunta import Ui_CrearPregunta
+from capas.interfaz.TodasEncuestas import Ui_TodasEncuestas
 
-from capas.negocios.usuario import Usuario
+from capas.negocios.usuario import *
 from capas.negocios.encuesta import *
 
 from capas.interfaz.DialogoAC import Ui_DialogoAC
@@ -116,15 +117,22 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         ## Botones
         self.btn_cerrar_sesion.clicked.connect(self.cerrar_sesion)
         self.btn_encuesta.clicked.connect(self.crear_encuesta)
+        self.btn_todas_encuestas.clicked.connect(self.todas_encuestas)
         
         ## Menu
         self.action_cerrar_sesion.triggered.connect(self.cerrar_sesion)
         self.action_crear_encuesta.triggered.connect(self.crear_encuesta)
+        self.action_todas_ecuestas.triggered.connect(self.todas_encuestas)
 
     def crear_encuesta(self):
         self.ven_crear_encuesta = VenCrearEncuesta(self.usuario, self.publicar_encuesta)
         self.ven_crear_encuesta.show()
         self.ven_crear_encuesta.activateWindow()
+
+    def todas_encuestas(self):
+        self.ven_todas_encuestas = VenTodasEncuestas()
+        self.ven_todas_encuestas.show()
+        self.ven_todas_encuestas.activateWindow()
 
     def cerrar_sesion(self):
         self.ven_dialogo.dialog("Aviso", "Desea Cerrar su Sesion actual?", 0, 0)
@@ -331,6 +339,50 @@ class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
             if self.ven_dialogo.result() == 1:
                 self.funcion_publicar()
                 self.close()
+
+class VenTodasEncuestas(QtWidgets.QWidget, Ui_TodasEncuestas):
+    def __init__(self, parent = None) -> None:
+        super(VenTodasEncuestas, self).__init__(parent)
+        self.setupUi(self, [], {})
+        
+        self.usuarios = ListaUsuarios()
+        self.usuarios.cargar()
+        
+        self.encuestas = ListaEncuestas()
+        self.listar_usuarios()
+        
+        self.buscar()
+        
+        ## Botones
+        self.btn_buscar.clicked.connect(self.buscar)
+
+    def listar_usuarios(self):
+        usu: Usuario
+        self.combo_box_usuarios.addItem('Todos')
+        
+        for usu in self.usuarios.lista:
+            self.combo_box_usuarios.addItem(usu.nombre)
+        
+        self.combo_box_usuarios.setCurrentIndex(0)
+
+    def buscar(self):
+        index = self.combo_box_usuarios.currentIndex()
+        if index != 0 and index != -1:
+            cedula = self.usuarios.lista[index-1].cedula
+        else:
+            cedula = ''
+        
+        titulo = self.txt_nombre.text()
+        
+        if self.ckb_activar.isChecked():
+            fecha_py = self.date_edit.date().toPyDate()
+            fecha = str(fecha_py)
+        else:
+            fecha = ''
+        
+        self.encuestas.cargar(cedula, titulo, fecha)
+        
+        self.recargar_encuesta(self.encuestas.datos_mostrar(), self.usuarios.diccionario())
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)

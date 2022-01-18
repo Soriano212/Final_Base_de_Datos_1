@@ -66,7 +66,11 @@ class DataBase:
                     sql = sql[:-1]
                     sql += ' AND '
                 cont += 1
-                sql += r"{}='{}',".format(dato[0], dato[1])
+                
+                if dato[1][0] == '%' or dato[1][-1] == '%':
+                    sql += r"{} like '{}',".format(dato[0], dato[1])
+                else:
+                    sql += r"{}='{}',".format(dato[0], dato[1])
             sql = sql[:-1]
         
         logging.info('Realizando SELECT: '+sql)
