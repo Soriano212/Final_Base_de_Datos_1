@@ -1,6 +1,7 @@
 import sys
 from PyQt6 import QtCore, QtWidgets
 from capas.interfaz.CrearPregunta import Ui_CrearPregunta
+from capas.interfaz.MisEncuestas import Ui_MisEncuestas
 from capas.interfaz.TodasEncuestas import Ui_TodasEncuestas
 
 from capas.negocios.usuario import *
@@ -118,11 +119,13 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         self.btn_cerrar_sesion.clicked.connect(self.cerrar_sesion)
         self.btn_encuesta.clicked.connect(self.crear_encuesta)
         self.btn_todas_encuestas.clicked.connect(self.todas_encuestas)
+        self.btn_mis_encuestas.clicked.connect(self.mis_encuestas)
         
         ## Menu
         self.action_cerrar_sesion.triggered.connect(self.cerrar_sesion)
         self.action_crear_encuesta.triggered.connect(self.crear_encuesta)
         self.action_todas_ecuestas.triggered.connect(self.todas_encuestas)
+        self.action_mis_Encuestas.triggered.connect(self.mis_encuestas)
 
     def crear_encuesta(self):
         self.ven_crear_encuesta = VenCrearEncuesta(self.usuario, self.publicar_encuesta)
@@ -133,6 +136,11 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         self.ven_todas_encuestas = VenTodasEncuestas()
         self.ven_todas_encuestas.show()
         self.ven_todas_encuestas.activateWindow()
+
+    def mis_encuestas(self):
+        self.ven_mis_encuestas = VenMisEncuestas(self.usuario)
+        self.ven_mis_encuestas.show()
+        self.ven_mis_encuestas.activateWindow()
 
     def cerrar_sesion(self):
         self.ven_dialogo.dialog("Aviso", "Desea Cerrar su Sesion actual?", 0, 0)
@@ -383,6 +391,64 @@ class VenTodasEncuestas(QtWidgets.QWidget, Ui_TodasEncuestas):
         self.encuestas.cargar(cedula, titulo, fecha)
         
         self.recargar_encuesta(self.encuestas.datos_mostrar(), self.usuarios.diccionario())
+        self.botones()
+
+    def botones(self):
+        for grupo in self.lista_box:
+            grupo[1].clicked.connect(self.reaccion)
+
+    def reaccion(self):
+        
+        for grupo in self.lista_box:
+            if grupo[1].isChecked():
+                grupo[1].setChecked(False)
+                
+                print("Boton Precionado, ID_encuesta:", grupo[0])
+                
+                return True
+        return False
+
+class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
+    def __init__(self, usuario: Usuario, parent = None) -> None:
+        super(VenMisEncuestas, self).__init__(parent)
+        self.setupUi(self, [])
+        
+        self.usuario = usuario
+        self.encuestas = ListaEncuestas()
+        
+        self.buscar()
+        
+        self.btn_buscar.clicked.connect(self.buscar)
+
+    def buscar(self):
+        titulo = self.txt_nombre.text()
+        
+        if self.ckb_activar.isChecked():
+            fecha_py = self.dateEdit.date().toPyDate()
+            fecha = str(fecha_py)
+        else:
+            fecha = ''
+        
+        self.encuestas.cargar(self.usuario.cedula, titulo, fecha)
+        
+        self.recargar_encuesta(self.encuestas.datos_mostrar())
+        self.botones()
+
+    def botones(self):
+        for grupo in self.lista_box:
+            grupo[1].clicked.connect(self.reaccion)
+
+    def reaccion(self):
+        
+        for grupo in self.lista_box:
+            if grupo[1].isChecked():
+                grupo[1].setChecked(False)
+                
+                print("Boton Precionado, ID_encuesta:", grupo[0])
+                
+                return True
+        return False
+
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)

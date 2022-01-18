@@ -13,6 +13,9 @@ class Pregunta():
     def datos_mostrar(self) -> tuple[int, str]:
         return(self.pos_pregunta, str(self.enunciado))
 
+    def __gt__(self, otro):
+        return self.pos_pregunta > otro.pos_pregunta
+
 class Abierta(Pregunta):
     def __init__(self, enunciado: str, pos_pregunta: int = 0) -> None:
         super().__init__(pos_pregunta, enunciado)
@@ -54,6 +57,9 @@ class Opcion():
                 logging.info('Opcion Registrada.')
                 return 0
 
+    def __gt__(self, otro):
+        return self.pos_opcion > otro.pos_opcion
+
 class Cerrada(Pregunta):
     def __init__(self, enunciado: str, seleccionar_varias: bool = False, pos_pregunta: int = 0) -> None:
         super().__init__(pos_pregunta, enunciado)
@@ -61,10 +67,11 @@ class Cerrada(Pregunta):
         self.opciones = []
 
     def agregar_opcion(self, opcion: Opcion):
-        if len(self.opciones) == 0:
-            opcion.pos_opcion = 1
-        else:
-            opcion.pos_opcion = self.opciones[-1].pos_opcion + 1
+        if opcion.pos_opcion == 0:
+            if len(self.opciones) == 0:
+                opcion.pos_opcion = 1
+            else:
+                opcion.pos_opcion = self.opciones[-1].pos_opcion + 1
         
         self.opciones.append(opcion)
 
@@ -97,6 +104,9 @@ class Cerrada(Pregunta):
                 
                 return 0
 
+    def ordenar_opciones(self):
+        self.opciones = sorted(self.opciones)
+
 class Encuesta():
     def __init__(self, titulo: str, fecha_creacion: datetime = None, id_encuesta: int = 0, cedula: str = '') -> None:
         self.id_encuesta = id_encuesta
@@ -106,10 +116,11 @@ class Encuesta():
         self.preguntas = []
 
     def agregar_pregunta(self, pregunta: Pregunta):
-        if len(self.preguntas) == 0:
-            pregunta.pos_pregunta = 1
-        else:
-            pregunta.pos_pregunta = self.preguntas[-1].pos_pregunta + 1
+        if pregunta.pos_pregunta == 0:
+            if len(self.preguntas) == 0:
+                pregunta.pos_pregunta = 1
+            else:
+                pregunta.pos_pregunta = self.preguntas[-1].pos_pregunta + 1
         
         self.preguntas.append(pregunta)
 
@@ -122,6 +133,9 @@ class Encuesta():
 
     def __str__(self):
         return 'Encuesta(Id: {e.id_encuesta}, Titulo: {e.titulo}, Fecha_Creacion: {e.fecha_creacion}, Numero_Preguntas: {l})'.format(e=self, l=len(self.preguntas))
+
+    def ordenar_preguntas(self):
+        self.preguntas = sorted(self.preguntas)
 
     def publicar(self, cedula: str) -> int:
         res = db.insert('encuesta', titulo = self.titulo, cedula = cedula)
@@ -164,6 +178,56 @@ class Encuesta():
                 
                 db.commit()
                 return 0
+
+    def recuperar(cls, id_encuesta: str) -> object | int:
+        datos_encuesta = db.select('encuesta', id_encuesta = id_encuesta)
+
+        if type(datos_encuesta) is tuple:
+            if len(datos_encuesta) == 1:
+                encuesta = Encuesta(datos_encuesta[0][1], datos_encuesta[0][2], datos_encuesta[0][0], datos_encuesta[0][3])
+                
+                datos_abierta = db.select('abierta', id_encuesta = id_encuesta)
+                
+                if type(datos_abierta) is tuple:
+                    for dato in datos_abierta:
+                        abierta = Abierta(dato[2], dato[0])
+                        encuesta.agregar_pregunta(abierta)
+                else:
+                    #Error al cargar pregunta Abierta
+                    return 1
+                
+                datos_cerrada = db.select('cerrada', id_encuesta = id_encuesta)
+                
+                if type(datos_cerrada) is tuple:
+                    for dato in datos_cerrada:
+                        cerrada = Cerrada(dato[2], dato[3], dato[0])
+                        pos_pregunta = cerrada.pos_pregunta
+                        
+                        datos_opcion = db.select('opcion', pos_pregunta = pos_pregunta, id_encuesta = id_encuesta)
+                        
+                        if type(datos_opcion) is tuple:
+                            for op in datos_opcion:
+                                opcion = Opcion(op[3], op[0])
+                                cerrada.agregar_opcion(opcion)
+                            cerrada.ordenar_opciones()
+                        else:
+                            #Error al cargar Opcion
+                            return 1
+                        
+                        encuesta.agregar_pregunta(cerrada)
+                else:
+                    #Error al cargar pregunta Cerrada
+                    return 1
+                
+                encuesta.ordenar_preguntas()
+                return encuesta
+                
+            else:
+                #No existe la encuesta
+                return 1
+        else:
+            #Error al buscar encuesta
+            return 2
 
 class ListaEncuestas():
     def __init__(self):

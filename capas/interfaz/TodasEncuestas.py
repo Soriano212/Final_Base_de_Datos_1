@@ -199,7 +199,6 @@ class Ui_TodasEncuestas(object):
             
             self.lista_box.append((dato[0],btn_responder))
         
-        
         self.scrollArea.setWidget(self.scroll_widget)
 
     def retranslateUi(self, TodasEncuestas):

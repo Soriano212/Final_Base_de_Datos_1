@@ -10,59 +10,33 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MisEncuestas(object):
-    def setupUi(self, MisEncuestas):
+    def setupUi(self, MisEncuestas, datos: list[tuple[str, str, str, str]]):
         MisEncuestas.setObjectName("MisEncuestas")
         MisEncuestas.resize(708, 737)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../../icons/noticias.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
+        icon.addPixmap(QtGui.QPixmap("icons/noticias.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.On)
         MisEncuestas.setWindowIcon(icon)
+        
         self.scrollArea = QtWidgets.QScrollArea(MisEncuestas)
         self.scrollArea.setGeometry(QtCore.QRect(0, 165, 711, 581))
         self.scrollArea.setMinimumSize(QtCore.QSize(711, 471))
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
+        
         self.scroll_widget = QtWidgets.QWidget()
         self.scroll_widget.setGeometry(QtCore.QRect(0, 0, 709, 579))
         self.scroll_widget.setObjectName("scroll_widget")
+        
         self.verticalLayout = QtWidgets.QVBoxLayout(self.scroll_widget)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.group_box = QtWidgets.QGroupBox(self.scroll_widget)
-        self.group_box.setMinimumSize(QtCore.QSize(661, 131))
-        self.group_box.setMaximumSize(QtCore.QSize(661, 131))
-        self.group_box.setTitle("")
-        self.group_box.setObjectName("group_box")
-        self.btn_respuestas = QtWidgets.QPushButton(self.group_box)
-        self.btn_respuestas.setGeometry(QtCore.QRect(530, 50, 121, 61))
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.btn_respuestas.setFont(font)
-        self.btn_respuestas.setObjectName("btn_respuestas")
-        self.label_titulo_box = QtWidgets.QLabel(self.group_box)
-        self.label_titulo_box.setGeometry(QtCore.QRect(10, 30, 71, 31))
-        font = QtGui.QFont()
-        font.setPointSize(16)
-        font.setBold(True)
-        self.label_titulo_box.setFont(font)
-        self.label_titulo_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_titulo_box.setObjectName("label_titulo_box")
-        self.label_nombre_box = QtWidgets.QLabel(self.group_box)
-        self.label_nombre_box.setGeometry(QtCore.QRect(15, 70, 491, 31))
-        font = QtGui.QFont()
-        font.setPointSize(15)
-        font.setBold(False)
-        self.label_nombre_box.setFont(font)
-        self.label_nombre_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
-        self.label_nombre_box.setObjectName("label_nombre_box")
-        self.label_fehca_box = QtWidgets.QLabel(self.group_box)
-        self.label_fehca_box.setGeometry(QtCore.QRect(520, 10, 131, 31))
-        font = QtGui.QFont()
-        font.setPointSize(13)
-        font.setBold(False)
-        self.label_fehca_box.setFont(font)
-        self.label_fehca_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_fehca_box.setObjectName("label_fehca_box")
-        self.verticalLayout.addWidget(self.group_box)
+        
         self.scrollArea.setWidget(self.scroll_widget)
+        
+        self.lista_box = []
+        self.recargar_encuesta(datos)
+        
+        #siguiente
+        
         self.label_titulo = QtWidgets.QLabel(MisEncuestas)
         self.label_titulo.setGeometry(QtCore.QRect(0, 10, 701, 51))
         font = QtGui.QFont()
@@ -72,7 +46,7 @@ class Ui_MisEncuestas(object):
         self.label_titulo.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_titulo.setObjectName("label_titulo")
         self.label_buscar = QtWidgets.QLabel(MisEncuestas)
-        self.label_buscar.setGeometry(QtCore.QRect(20, 70, 211, 51))
+        self.label_buscar.setGeometry(QtCore.QRect(0, 70, 211, 51))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(False)
@@ -80,13 +54,13 @@ class Ui_MisEncuestas(object):
         self.label_buscar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_buscar.setObjectName("label_buscar")
         self.btn_buscar = QtWidgets.QPushButton(MisEncuestas)
-        self.btn_buscar.setGeometry(QtCore.QRect(540, 100, 121, 31))
+        self.btn_buscar.setGeometry(QtCore.QRect(570, 100, 121, 31))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.btn_buscar.setFont(font)
         self.btn_buscar.setObjectName("btn_buscar")
         self.dateEdit = QtWidgets.QDateEdit(MisEncuestas)
-        self.dateEdit.setGeometry(QtCore.QRect(250, 80, 241, 31))
+        self.dateEdit.setGeometry(QtCore.QRect(230, 80, 241, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.dateEdit.setFont(font)
@@ -95,32 +69,102 @@ class Ui_MisEncuestas(object):
         self.dateEdit.setMinimumDate(QtCore.QDate(2021, 1, 1))
         self.dateEdit.setObjectName("dateEdit")
         self.txt_nombre = QtWidgets.QLineEdit(MisEncuestas)
-        self.txt_nombre.setGeometry(QtCore.QRect(250, 120, 241, 31))
+        self.txt_nombre.setGeometry(QtCore.QRect(230, 120, 241, 31))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.txt_nombre.setFont(font)
         self.txt_nombre.setObjectName("txt_nombre")
         self.label_buscar_2 = QtWidgets.QLabel(MisEncuestas)
-        self.label_buscar_2.setGeometry(QtCore.QRect(30, 110, 211, 51))
+        self.label_buscar_2.setGeometry(QtCore.QRect(10, 110, 211, 51))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(False)
         self.label_buscar_2.setFont(font)
         self.label_buscar_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_buscar_2.setObjectName("label_buscar_2")
+        self.ckb_activar = QtWidgets.QCheckBox(MisEncuestas)
+        self.ckb_activar.setGeometry(QtCore.QRect(480, 80, 71, 31))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.ckb_activar.setFont(font)
+        self.ckb_activar.setObjectName("ckb_activar")
 
         self.retranslateUi(MisEncuestas)
         QtCore.QMetaObject.connectSlotsByName(MisEncuestas)
 
+    def recargar_encuesta(self, datos: list[tuple[str, str, str, str]]):
+        
+        self.scroll_widget.setParent(None)
+        self.verticalLayout.setParent(None)
+        self.lista_box = []
+        
+        self.scroll_widget = QtWidgets.QWidget()
+        self.scroll_widget.setGeometry(QtCore.QRect(0, 0, 709, 579))
+        self.scroll_widget.setObjectName("scroll_widget")
+        
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.scroll_widget)
+        self.verticalLayout.setObjectName("verticalLayout")
+        
+        _translate = QtCore.QCoreApplication.translate
+        for dato in datos:
+        
+            group_box = QtWidgets.QGroupBox(self.scroll_widget)
+            group_box.setMinimumSize(QtCore.QSize(661, 131))
+            group_box.setMaximumSize(QtCore.QSize(661, 131))
+            group_box.setTitle("")
+            group_box.setObjectName("group_box")
+            
+            btn_respuestas = QtWidgets.QPushButton(group_box)
+            btn_respuestas.setGeometry(QtCore.QRect(530, 50, 121, 61))
+            font = QtGui.QFont()
+            font.setPointSize(14)
+            btn_respuestas.setFont(font)
+            btn_respuestas.setObjectName("btn_respuestas")
+            btn_respuestas.setCheckable(True)
+            btn_respuestas.setText(_translate("MisEncuestas", "Ver\n""Respuestas"))
+            
+            label_titulo_box = QtWidgets.QLabel(group_box)
+            label_titulo_box.setGeometry(QtCore.QRect(10, 30, 71, 31))
+            font = QtGui.QFont()
+            font.setPointSize(16)
+            font.setBold(True)
+            label_titulo_box.setFont(font)
+            label_titulo_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            label_titulo_box.setObjectName("label_titulo_box")
+            label_titulo_box.setText(_translate("MisEncuestas", "Titulo:"))
+            
+            label_nombre_box = QtWidgets.QLabel(group_box)
+            label_nombre_box.setGeometry(QtCore.QRect(15, 70, 491, 31))
+            font = QtGui.QFont()
+            font.setPointSize(15)
+            font.setBold(False)
+            label_nombre_box.setFont(font)
+            label_nombre_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+            label_nombre_box.setObjectName("label_nombre_box")
+            label_nombre_box.setText(_translate("MisEncuestas", dato[1]))
+            
+            label_fehca_box = QtWidgets.QLabel(group_box)
+            label_fehca_box.setGeometry(QtCore.QRect(520, 10, 131, 31))
+            font = QtGui.QFont()
+            font.setPointSize(13)
+            font.setBold(False)
+            label_fehca_box.setFont(font)
+            label_fehca_box.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+            label_fehca_box.setObjectName("label_fehca_box")
+            label_fehca_box.setText(_translate("MisEncuestas", dato[2][:10]))
+            
+            self.verticalLayout.addWidget(group_box)
+            
+            self.lista_box.append((dato[0],btn_respuestas))
+        
+        self.scrollArea.setWidget(self.scroll_widget)
+
     def retranslateUi(self, MisEncuestas):
         _translate = QtCore.QCoreApplication.translate
         MisEncuestas.setWindowTitle(_translate("MisEncuestas", "Mis Encuestas"))
-        self.btn_respuestas.setText(_translate("MisEncuestas", "Ver\n"
-"Respuestas"))
-        self.label_titulo_box.setText(_translate("MisEncuestas", "Titulo:"))
-        self.label_nombre_box.setText(_translate("MisEncuestas", "Nombre"))
-        self.label_fehca_box.setText(_translate("MisEncuestas", "AAAA-MM-DD"))
+        
         self.label_titulo.setText(_translate("MisEncuestas", "Mis Encuestas"))
         self.label_buscar.setText(_translate("MisEncuestas", "Buscar por fecha:"))
         self.btn_buscar.setText(_translate("MisEncuestas", "Buscar"))
         self.label_buscar_2.setText(_translate("MisEncuestas", "Buscar por Nombre:"))
+        self.ckb_activar.setText(_translate("MisEncuestas", "Activar"))

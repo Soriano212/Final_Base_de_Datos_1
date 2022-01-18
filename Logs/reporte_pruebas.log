@@ -293,3 +293,33 @@ INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND t
 INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND titulo like '%c%' AND fecha like '%2022-01-17%'
 INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND titulo like '%c%' AND fecha like '%%'
 INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND titulo like '%%' AND fecha like '%%'
+INFO:root:Log creado el: 2022-1-17_22-33-34
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND titulo like '%%' AND fecha like '%%'
+INFO:root:Log creado el: 2022-1-17_22-34-19
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND titulo like '%%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND titulo like '%c%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND titulo like '%p%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%%' AND fecha like '%2022-01-01%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%%' AND fecha like '%2022-01-17%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%c%' AND fecha like '%2022-01-17%'
+INFO:root:Log creado el: 2022-1-17_22-39-39
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%%' AND titulo like '%%' AND fecha like '%%'
+INFO:root:Log creado el: 2022-1-17_22-56-54
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Título','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 4
+INFO:root:Log creado el: 2022-1-17_22-59-1
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%t%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%ti%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%c%' AND fecha like '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula like '%1720688918%' AND titulo like '%%' AND fecha like '%%'
