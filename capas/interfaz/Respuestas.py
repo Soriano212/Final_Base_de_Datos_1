@@ -75,7 +75,7 @@ class Ui_Respuestas(object):
         self.retranslateUi(Respuestas)
         QtCore.QMetaObject.connectSlotsByName(Respuestas)
 
-    def recargar_respuestas(self, datos_respuestas: list[tuple[str, str, str] | tuple[str, str, str, list[str]]]):
+    def recargar_respuestas(self, datos_respuestas: list[tuple[str, str, str] | tuple[str, str, list[str]]]):
         self.scroll_widget_respuesta.setParent(None)
         
         self.scroll_widget_respuesta = QtWidgets.QWidget()
@@ -89,7 +89,7 @@ class Ui_Respuestas(object):
         
         for dato in datos_respuestas:
         
-            if len(dato) == 3:
+            if type(dato[2]) is str:
             
                 group_box_respuesta = QtWidgets.QGroupBox(self.scroll_widget_respuesta)
                 group_box_respuesta.setGeometry(QtCore.QRect(9, 302, 711, 155))
@@ -104,7 +104,7 @@ class Ui_Respuestas(object):
                 
                 label_pregunta_box = QtWidgets.QLabel(group_box_respuesta)
                 label_pregunta_box.setEnabled(True)
-                label_pregunta_box.setGeometry(QtCore.QRect(10, 0, 691, 51))
+                label_pregunta_box.setGeometry(QtCore.QRect(10, 11, 691, 51))
                 font = QtGui.QFont()
                 font.setPointSize(17)
                 font.setBold(True)
@@ -122,7 +122,7 @@ class Ui_Respuestas(object):
                 
                 self.verticalLayout_2.addWidget(group_box_respuesta)
             
-            else:
+            elif type(dato[2]) is list:
             
                 group_box_respuesta = QtWidgets.QGroupBox(self.scroll_widget_respuesta)
                 group_box_respuesta.setGeometry(QtCore.QRect(9, 302, 711, 155))
@@ -137,7 +137,7 @@ class Ui_Respuestas(object):
                 
                 label_pregunta_box = QtWidgets.QLabel(group_box_respuesta)
                 label_pregunta_box.setEnabled(True)
-                label_pregunta_box.setGeometry(QtCore.QRect(10, 0, 691, 51))
+                label_pregunta_box.setGeometry(QtCore.QRect(10, 11, 691, 51))
                 font = QtGui.QFont()
                 font.setPointSize(17)
                 font.setBold(True)
@@ -147,8 +147,13 @@ class Ui_Respuestas(object):
                 label_pregunta_box.setText(_translate("Respuestas", dato[1]))
                 
                 res = ''
-                for da in dato[3]:
-                    res += '\n' + da
+                cont = 0
+                for da in dato[2]:
+                    if cont == 0:
+                        res += da
+                    else:
+                        res += '\n' + da
+                    cont += 1
                 
                 plainTextEdit = QtWidgets.QPlainTextEdit(group_box_respuesta)
                 plainTextEdit.setEnabled(True)

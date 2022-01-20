@@ -155,7 +155,7 @@ class ListaRespuestas():
         res: RespondeAbierta | EscogeOpcion
         for res in self.lista:
             if cedula == res.cedula:
-                lista_usuario.append(res.datos_mostrar)
+                lista_usuario.append(res.datos_mostrar())
         
         lista_usuario = sorted(lista_usuario)
         
@@ -174,7 +174,7 @@ class ListaRespuestas():
                     respuestas.append(dato[2])
                 else:
                     if respuestas is not None and preg is not None:
-                        preg = (preg[0], preg[2], respuestas)
+                        preg = (preg[0], preg[1], respuestas)
                         lista_final.append(preg)
                         preg = None
                         respuestas = None
@@ -185,7 +185,7 @@ class ListaRespuestas():
                     respuestas.append(dato[2])
         
         if respuestas is not None and preg is not None:
-            preg = (preg[0], preg[1], preg[3], respuestas)
+            preg = (preg[0], preg[1], respuestas)
             lista_final.append(preg)
             preg = None
             respuestas = None

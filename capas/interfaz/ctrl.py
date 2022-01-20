@@ -431,6 +431,7 @@ class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
         
         self.usuario = usuario
         self.encuestas = ListaEncuestas()
+        self.ven_dialogo = VenDialogo()
         
         self.buscar()
         
@@ -461,10 +462,13 @@ class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
                 grupo[1].setChecked(False)
                 
                 respuestas = ListaRespuestas()
-                respuestas.recuperar(grupo[0])
-                
-                self.ven_respuestas = VenRespuestas(respuestas)
-                self.ven_respuestas.show()
+                val = respuestas.recuperar(grupo[0])
+                if val == 0:
+                    self.ven_respuestas = VenRespuestas(respuestas)
+                    self.ven_respuestas.show()
+                else:
+                    self.ven_dialogo.dialog("Error", "Error al cargar respuestas.", 1, 4)
+                    self.ven_dialogo.show()
                 
                 return True
         return False
@@ -521,13 +525,14 @@ class VenRespuestas(QtWidgets.QWidget, Ui_Respuestas):
         super(VenRespuestas, self).__init__(parent)
         self.setupUi(self, respuestas.usuarios)
         self.respuestas = respuestas
+        
+        self.botones()
 
     def botones(self):
         for grupo in self.lista_box_usuarios:
             grupo[1].clicked.connect(self.reaccion)
 
     def reaccion(self):
-        
         for grupo in self.lista_box_usuarios:
             if grupo[1].isChecked():
                 grupo[1].setChecked(False)
