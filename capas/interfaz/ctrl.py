@@ -3,6 +3,7 @@ from PyQt6 import QtCore, QtWidgets
 from capas.interfaz.CrearPregunta import Ui_CrearPregunta
 from capas.interfaz.MisEncuestas import Ui_MisEncuestas
 from capas.interfaz.ResponderEncuesta import Ui_ResponderEncuesta
+from capas.interfaz.Respuestas import Ui_Respuestas
 from capas.interfaz.TodasEncuestas import Ui_TodasEncuestas
 
 from capas.negocios.usuario import *
@@ -462,6 +463,9 @@ class VenMisEncuestas(QtWidgets.QWidget, Ui_MisEncuestas):
                 respuestas = ListaRespuestas()
                 respuestas.recuperar(grupo[0])
                 
+                self.ven_respuestas = VenRespuestas(respuestas)
+                self.ven_respuestas.show()
+                
                 return True
         return False
 
@@ -511,6 +515,28 @@ class VenResponderEncuesta(QtWidgets.QWidget, Ui_ResponderEncuesta):
                 self.ven_dialogo.show()
             case 0:
                 self.funcion_correcto()
+
+class VenRespuestas(QtWidgets.QWidget, Ui_Respuestas):
+    def __init__(self, respuestas: ListaRespuestas, parent=None):
+        super(VenRespuestas, self).__init__(parent)
+        self.setupUi(self, respuestas.usuarios)
+        self.respuestas = respuestas
+
+    def botones(self):
+        for grupo in self.lista_box_usuarios:
+            grupo[1].clicked.connect(self.reaccion)
+
+    def reaccion(self):
+        
+        for grupo in self.lista_box_usuarios:
+            if grupo[1].isChecked():
+                grupo[1].setChecked(False)
+                
+                respuestas = self.respuestas.datos_mostrar(grupo[0])
+                self.recargar_respuestas(respuestas)
+                
+                return True
+        return False
 
 def abrir():
         app = QtWidgets.QApplication(sys.argv)
