@@ -1192,3 +1192,63 @@ WARNING:root:Error al registrar la encuesta.
 INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando Trigger','1720688900')
 WARNING:root:Error De Operacion: (1054, "Unknown column 'USER' in 'field list'")
 WARNING:root:Error al registrar la encuesta.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando Trigger','1720688900')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 7
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('7','1','Ingrese su correo.')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('7','2','El verdad.','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','1','Verdadero','7')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','2','Falso','7')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('7','3','Acender','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','1','Juan','7')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','2','Mario','7')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','3','Romeo','7')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('1720688900','1','7','juana@u.com')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688900','2','7','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688900','3','7','3')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
