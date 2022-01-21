@@ -77,6 +77,28 @@ CREATE TABLE responde_abierta(
     SELECT LAST_INSERT_ID();
 */
 
+/*Tabla Bitacora*/
+CREATE TABLE bitacora_encuesta(
+    operacion VARCHAR(20) NOT NULL,
+    tabla VARCHAR(20) NOT NULL,
+    id_encuesta INTEGER UNSIGNED NOT NULL,
+    cedula VARCHAR(10) NOT NULL,
+    usuario VARCHAR(30) NOT NULL,
+    fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (id_encuesta) REFERENCES encuesta(id_encuesta),
+    FOREIGN KEY (cedula) REFERENCES usuario(cedula)
+);
+
+/*TRIGGER*/
+
+CREATE TRIGGER encuesta_insert
+AFTER INSERT ON encuesta 
+FOR EACH ROW 
+BEGIN
+INSERT INTO bitacora_encuesta VALUES ('INSERT', 'encuesta', NEW.id_encuesta, NEW.cedula, CURRENT_USER(), NOW());
+END;
+
 /*Datos de Prueba*/
 
 INSERT INTO usuario(cedula, nombre, email, contrasenia) VALUES 

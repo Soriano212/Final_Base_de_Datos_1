@@ -1183,3 +1183,12 @@ INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='4
 INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='4'
 INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='1'
 INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='1'
+INFO:root:Log creado el: 2022-1-20_19-4-56
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando Trigger','1720688900')
+WARNING:root:Error De Operacion: (1054, "Unknown column 'USER' in 'field list'")
+WARNING:root:Error al registrar la encuesta.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando Trigger','1720688900')
+WARNING:root:Error De Operacion: (1054, "Unknown column 'USER' in 'field list'")
+WARNING:root:Error al registrar la encuesta.
