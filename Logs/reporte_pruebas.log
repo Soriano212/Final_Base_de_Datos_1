@@ -1252,3 +1252,132 @@ INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900
 INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='7'
 INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='7'
 INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Log creado el: 2022-1-21_21-23-34
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Título','1720688918')
+INFO:root:Error de Integridad: (1062, "Duplicate entry 'Título-1720688918' for key 'encuesta.titulo'")
+INFO:root:Error la clave primaria de la encuesta ya esta registrada o titulo por usuario ya registrado.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Título','1720688918')
+INFO:root:Error de Integridad: (1062, "Duplicate entry 'Título-1720688918' for key 'encuesta.titulo'")
+INFO:root:Error la clave primaria de la encuesta ya esta registrada o titulo por usuario ya registrado.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Mario es GOD','1720688918')
+INFO:root:Error de Integridad: (1048, "Column 'pos_pregunta' cannot be null")
+INFO:root:Error la clave primaria de la encuesta ya esta registrada o titulo por usuario ya registrado.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Yo soy god','1720688918')
+INFO:root:Error de Integridad: (1048, "Column 'pos_pregunta' cannot be null")
+INFO:root:Error la clave primaria de la encuesta ya esta registrada o titulo por usuario ya registrado.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Yo soy god','1720688918')
+INFO:root:Error de Integridad: (1048, "Column 'pos_pregunta' cannot be null")
+INFO:root:Error la clave primaria de la encuesta ya esta registrada o titulo por usuario ya registrado.
+INFO:root:Log creado el: 2022-1-21_21-30-49
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Mario es GOD','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 13
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('13','1','Tu que crees?')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('13','2','Si mismo o no mismo?','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','1','Verdadero','13')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','2','Falso','13')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('13','3','Mario','1')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','1','Si mismo','13')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','2','No mismo','13')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','3','Yo creo que si','13')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','4','Yo creo que no','13')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('1720688918','1','13','Creo q mario si es god')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688918','2','13','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688918','3','13','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688918','3','13','3')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Log creado el: 2022-1-21_22-9-31
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('1720688900','1','13','Yo no creer nada')
+INFO:root:Error de Integridad: (1048, "Column 'pos_opcion' cannot be null")
+WARNING:root:Error la clave primaria de la respuesta abierta ya esta registrada.
+WARNING:root:Error la clave primaria de una respuesta ya esta registrada.
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('1720688900','1','13','Yo no creer nada')
+INFO:root:Error de Integridad: (1048, "Column 'pos_opcion' cannot be null")
+WARNING:root:Error la clave primaria de la respuesta abierta ya esta registrada.
+WARNING:root:Error la clave primaria de una respuesta ya esta registrada.
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('1720688900','1','13','Yo no creer nada')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688900','2','13','2')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688900','3','13','2')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688900','3','13','4')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='4' AND pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
