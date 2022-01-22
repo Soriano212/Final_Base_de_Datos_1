@@ -1,12 +1,17 @@
-/* Proceso para verificar usuario*/
+/* Proceso para verificar cuantas encuestas*/
 
-CREATE PROCEDURE numEncuestaUsuario(dni in VARCHAR2) AS conn 
-SYS_REFCURSOR;
-
+CREATE PROCEDURE puede_crear_encuesta(IN ced VARCHAR(10))
 BEGIN
-    OPEN conn FOR --cONDICIONAL QUE IMPIDA EL INGRESO 
-    SELECT count(Usuario.idUsuario) FROM Usuario
-    INNER JOIN Usuario_Encuesta ON Usuario_Encuesta.id_Usuario = Usuario.idUsuario AND Usuario.idUsuario = dni
-    INNER JOIN Encuesta ON Encuesta.id = Usuario_Encuesta.id_Encuesta;
-    DBMS_SQL.RETURN_RESULT(conn);
-END numEncuestaUsuario;
+    SELECT COUNT(cedula) INTO @numero FROM encuesta WHERE cedula = ced;
+    SELECT IF(@numero > 10, 0, 1);
+END;
+
+/* Proceso para verificar usuario respondio encuesta*/
+
+CREATE PROCEDURE usuario_res_encuesta(IN ced VARCHAR(10), IN id INTEGER)
+BEGIN
+    SELECT COUNT(cedula) INTO @num_a FROM responde_abierta WHERE cedula = ced AND id_encuesta = id;
+    SELECT COUNT(cedula) INTO @num_b FROM escoge_opcion WHERE cedula = ced AND id_encuesta = id;
+    SET @numero = @num_a + @num_b;
+    SELECT IF(@numero > 0, 0, 1);
+END;
