@@ -2020,3 +2020,31 @@ INFO:root:Realizando UPDATE: UPDATE usuario SET email='mariano@u.com' WHERE cedu
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mariano@u.com' AND contrasenia='74cf0e9a3c2b904e9c445771cdccb3e6ce3e4da7'
 WARNING:root:Error De Operacion: (1370, "execute command denied to user 'creador'@'localhost' for routine 'soriano_malo_final.puede_crear_encuesta'")
 WARNING:root:Error De Operacion: (1370, "execute command denied to user 'creador'@'localhost' for routine 'soriano_malo_final.puede_crear_encuesta'")
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_15-46-2
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mariano@u.com' AND contrasenia='74cf0e9a3c2b904e9c445771cdccb3e6ce3e4da7'
+WARNING:root:Error De Operacion: (1370, "execute command denied to user 'creador'@'localhost' for routine 'soriano_malo_final.puede_crear_encuesta'")
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_15-48-56
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mariano@u.com' AND contrasenia='74cf0e9a3c2b904e9c445771cdccb3e6ce3e4da7'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='15'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='15'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='15'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%co%' AND fecha LIKE '%%'

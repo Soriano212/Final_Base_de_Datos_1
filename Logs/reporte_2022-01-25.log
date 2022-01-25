@@ -1,0 +1,314 @@
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_16-16-19
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_16-23-2
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_16-26-26
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_16-28-36
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_16-28-56
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_16-29-49
+
+INFO:root:Realizando INSERT: INSERT INTO usuario(cedula,nombre,email,contrasenia) VALUES ('1720688900','Maria Teresa','maria@u.com','e21fc56c1a272b630e0d1439079d0598cf8b8329')
+INFO:root:Usuario registrado.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='maria@u.com' AND contrasenia='e21fc56c1a272b630e0d1439079d0598cf8b8329'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Opinion sobre la Cena Navideña','1720688900')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 1
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('1','1','Que tal le parecio la cena?')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('1','2','Que plato le gusto mas?','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','1','Entrada','1')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','2','Principal','1')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','3','Ensalada','1')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','4','Postre','1')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('1','3','El vino fue de buena calidad?','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','1','Verdadero','1')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','2','Falso','1')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Opinion sobre el Servicio de Agua','1720688900')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 2
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('2','1','Descripcion general del servicio.')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('2','2','Calidad del Agua','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','1','1','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','2','2','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','3','3','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','4','4','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('2','5','5','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('2','3','Se le brindo ayuda cuando la necesito?','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','1','Verdadero','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','2','Falso','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('2','4','En que debemos mejorar?','1')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','1','Calidad del Agua','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','2','Alcantarillado','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','3','Atencion','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','4','Presion del Agua','2')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Opinion sobre el servicio de Electricidad','1720688900')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 3
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('3','1','La atencion es buena?','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('1','1','Verdadero','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('1','2','Falso','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('3','2','Opinion sobre la atencion.')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('3','3','El servicio es bueno?','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','1','Verdadero','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','2','Falso','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('3','4','Califique el servicio.','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','1','1','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','2','2','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','3','3','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','4','4','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','5','5','3')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='1'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_16-41-0
+
+INFO:root:Realizando INSERT: INSERT INTO usuario(cedula,nombre,email,contrasenia) VALUES ('0150440378','Alberto Soriano','alberto@u.com','c1a4158909d6c23f73df353c7cc0bbe963891a65')
+INFO:root:Usuario registrado.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alberto@u.com' AND contrasenia='c1a4158909d6c23f73df353c7cc0bbe963891a65'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='1'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','1','1','Me parecio muy bien el servicio ofrecido.')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','2','1','2')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','3','1','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alberto@u.com' AND contrasenia='c1a4158909d6c23f73df353c7cc0bbe963891a65'
+INFO:root:Realizando UPDATE: UPDATE usuario SET nombre='Alberto Soriano Eusebio' WHERE cedula='0150440378' LIMIT 1
+INFO:root:Realizando UPDATE: UPDATE usuario SET nombre='Alberto Soriano' WHERE cedula='0150440378' LIMIT 1
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_16-44-22
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alberto@u.com' AND contrasenia='c1a4158909d6c23f73df353c7cc0bbe963891a65'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alberto@u.com' AND contrasenia='c1a4158909d6c23f73df353c7cc0bbe963891a65'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Datos para Marathon 10k','0150440378')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 4
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('4','1','Ingrese su nombre.')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('4','2','Ingrese su correo.')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('4','3','Ingrese su edad.')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('4','4','Desea recibir el kit completo?','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','1','Verdadero','4')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('4','2','Falso','4')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('4','5','Estado de concursante.','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('5','1','Principiante','4')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('5','2','Avanzado','4')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('5','3','Profecional','4')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%0150440378%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='5' AND id_encuesta='4'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','1','4','Alberto Soriano')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','2','4','alberto@u.com')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','3','4','21')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','4','4','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','5','4','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%0150440378%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='2' AND id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='3' AND id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='4' AND id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='5' AND id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='5' AND id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_18-18-23
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alberto@u.com' AND contrasenia='c1a4158909d6c23f73df353c7cc0bbe963891a65'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='2'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','1','2','Buena')
+WARNING:root:Error De Operacion: (1054, "Unknown column 'ced' in 'where clause'")
+WARNING:root:Error al registrar la respuesta abierta.
+WARNING:root:Error al registrar las respuestas.
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','1','2','Buena')
+WARNING:root:Error De Operacion: (1054, "Unknown column 'ced' in 'where clause'")
+WARNING:root:Error al registrar la respuesta abierta.
+WARNING:root:Error al registrar las respuestas.
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','1','2','Buena')
+WARNING:root:Error De Operacion: (1054, "Unknown column 'ced' in 'where clause'")
+WARNING:root:Error al registrar la respuesta abierta.
+WARNING:root:Error al registrar las respuestas.
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','1','2','Buena')
+WARNING:root:Error De Operacion: (1054, "Unknown column 'ced' in 'where clause'")
+WARNING:root:Error al registrar la respuesta abierta.
+WARNING:root:Error al registrar las respuestas.
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','1','2','Buena')
+WARNING:root:Error De Operacion: (1054, "Unknown column 'ced' in 'where clause'")
+WARNING:root:Error al registrar la respuesta abierta.
+WARNING:root:Error al registrar las respuestas.
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_18-29-40
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alberto@u.com' AND contrasenia='c1a4158909d6c23f73df353c7cc0bbe963891a65'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='2'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','1','2','Esta bueno')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','2','2','4')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','3','2','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','4','2','2')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','4','2','3')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='maria@u.com' AND contrasenia='e21fc56c1a272b630e0d1439079d0598cf8b8329'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='4' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='4' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='4' AND pos_pregunta='2' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_18-37-39
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='alberto@u.com' AND contrasenia='c1a4158909d6c23f73df353c7cc0bbe963891a65'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','2','3','Yo creo q si')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','1','3','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','3','3','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','4','3','5')
+INFO:root:La opcion escogida Registrada.

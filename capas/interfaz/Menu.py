@@ -38,7 +38,7 @@ class Ui_Menu(object):
         self.label_Usuario = QtWidgets.QLabel(self.centralwidget)
         self.label_Usuario.setGeometry(QtCore.QRect(130, 110, 331, 51))
         font = QtGui.QFont()
-        font.setPointSize(25)
+        font.setPointSize(20)
         self.label_Usuario.setFont(font)
         self.label_Usuario.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_Usuario.setObjectName("label_Usuario")

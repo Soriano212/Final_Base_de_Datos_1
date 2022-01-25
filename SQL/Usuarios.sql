@@ -38,4 +38,5 @@ FLUSH PRIVILEGES;
 /* Muestra privilegios */
 /*
     SHOW GRANTS FOR 'encuestado'@'localhost';
+    SELECT user FROM mysql.user;
 */

@@ -1,12 +1,70 @@
+Buen dia ingeniera, estos son algunos pasos he instrucciones para correr nuestro programa.
+Nuestro programa esta desarrollado en Python 3.10, con el gestor de MySQL
 
-Instalar la libreria PyMySQL en la consola de Python.
+###########################
+
+Instalar la libreria PyMySQL de Python desde la consola de windows.
+comando de consola: pip install PyMySQL
+
+Instalar la libreria PyQt6 de Python desde la consola de windows.
+comando de consola: pip install PyQt6
+
+###########################
+Preparacion de MySQL
+
+Copiar y ejecutar en la consola los scrips de la carpeta SQL en el siguiente orden:
+
+1) Correr Tablas.sql
+2) Colocar el comnado: use soriano_malo_final;
+3) Correr Bitacoras.sql
+4) Correr Procesos.sql
+5) Correr Usuarios.sql
+
+###########################
+
+Todo listo para ejecutar el programa:
+Puede ejecutar el programa desde la consola de Windows:
+
+1) Colocar la ubicacion de la consola en esta carpeta 'Final_Base_De_Datos_1':
+2) Colocar el comando: python Main.py
+
+Tambien puede abrir desde otro editor de codigo de python como VSCode o PyCham importando esta carpeta.
+
+###########################
+
+Puede observar las tablas dentro de mysql con los comandos:
+
+SELECT * FROM usuario;             #Tabla de Usuarios
+SELECT * FROM encuesta;            #Tabla de Encuestas
+SELECT * FROM abierta;             #Tabla de Preguntas Abiertas
+SELECT * FROM cerrada;             #Tabla de Preguntas Cerradas
+SELECT * FROM opcion;              #Tabla de Opciones de Preguntas Cerradas
+SELECT * FROM responde_abierta;    #Tabla de Respuestas a Preguntas Abiertas
+SELECT * FROM escoge_opcion;       #Tabla de Opciones Escogidas de Preguntas Cerradas
+
+SELECT * FROM bitacora_encuesta;   #Tabla de Bitacora de ingreso de Encuestas
+SELECT * FROM bitacora_respuesta;  #Tabla de Bitacora de ingreso de Respuestas
+
+###########################
 
 Usuarios:
 _______________
 
 Email:               Contrasenia:
-mario@u.com          mario
-juana@u.com          juana
-albert212@gmail.com   admin
+maria@u.com	         maria
+alberto@u.com        alberto
 _______________
 
+###########################
+
+Borrado de base de datos, borra todas la tablas, triggers y procedimientos.
+
+DROP DATABASE soriano_malo_final;
+
+Borrado de usuarios.
+
+DROP USER 'inicio'@'localhost';
+
+DROP USER 'encuestado'@'localhost';
+
+DROP USER 'creador'@'localhost';

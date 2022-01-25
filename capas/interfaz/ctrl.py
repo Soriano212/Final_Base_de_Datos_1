@@ -38,9 +38,15 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
         if len(nom) < 3 or len(ced) < 3 or len(email) < 3 or len(contra) < 3:
             men += 'Los campos deben tener un largo mayor a 3.'
         
-        if "@" not in email and "." not in email:
+        if "@" not in email or "." not in email:
             if len(men) > 0: men += '\n'
             men += 'Email invalido.'
+        
+        valced = lambda id: sum([ x if x <= 9 else x-9 for x in [ int(id[i]) * ([2,1]*len(id))[i] for i in range(len(id)) ] ]) % 10 == 0 and len(id) == 10
+        
+        if not valced(ced):
+            if len(men) > 0: men += '\n'
+            men += 'Cedula invalida.'
         
         if len(men) == 0:
             self.ven_dialogo.dialog("Registro", "Desea registrarse con los datos ingresados.", 0, 3)
@@ -210,10 +216,10 @@ class VenCuenta(QtWidgets.QWidget, Ui_Cuenta):
             val = True
             
             if index == 1:
-                if "@" not in texto and "." not in texto: val = False
+                if "@" not in texto or "." not in texto: val = False
             
             if val:
-                self.ven_dialogo.dialog("Aviso", "Desea cambiar su "+self.combo_box.currentText()+" con: '"+texto+"'.", 0, 0)
+                self.ven_dialogo.dialog("Aviso", "Desea cambiar su "+self.combo_box.currentText()+" con:\n'"+texto+"'.", 0, 0)
                 self.ven_dialogo.exec()
                 
                 if self.ven_dialogo.result() == 1:

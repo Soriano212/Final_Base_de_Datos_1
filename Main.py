@@ -22,8 +22,8 @@ class logtime(datetime):
         fecha = datetime.today()
         return '{d.year}-{d.month}-{d.day}_{d.hour}-{d.minute}-{d.second}'.format(d=fecha)
 
-#logging.basicConfig(filename='Logs/reporte_'+date.today()+'.log', encoding='utf-8', level=logging.DEBUG)
-logging.basicConfig(filename='Logs/reporte_pruebas.log', encoding='utf-8', level=logging.DEBUG)
+logging.basicConfig(filename='Logs/reporte_'+str(date.today())+'.log', encoding='utf-8', level=logging.DEBUG)
+
 logging.info('\n\n----------------------------------------------\nLog creado el: {}\n'.format(logtime.today()))
 
 if __name__ == "__main__":
