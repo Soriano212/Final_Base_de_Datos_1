@@ -34,7 +34,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>110</y>
+      <y>90</y>
       <width>171</width>
       <height>161</height>
      </rect>
@@ -53,7 +53,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>106</y>
+      <y>100</y>
       <width>331</width>
       <height>31</height>
      </rect>
@@ -69,7 +69,7 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>176</y>
+      <y>170</y>
       <width>331</width>
       <height>31</height>
      </rect>
@@ -85,9 +85,9 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>143</y>
+      <y>137</y>
       <width>330</width>
-      <height>26</height>
+      <height>30</height>
      </rect>
     </property>
    </widget>
@@ -95,9 +95,9 @@
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>210</y>
+      <y>204</y>
       <width>330</width>
-      <height>26</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="echoMode">
@@ -107,8 +107,8 @@
    <widget class="QPushButton" name="btn_ingresar">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>260</y>
+      <x>40</x>
+      <y>290</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -151,6 +151,42 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
+   </widget>
+   <widget class="QLabel" name="label__contrasenia_sesion_2">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>244</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Permisos</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>284</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Encuestado</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Creador</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QWidget" name="tab_registro">
@@ -243,7 +279,7 @@
       <x>210</x>
       <y>320</y>
       <width>330</width>
-      <height>26</height>
+      <height>30</height>
      </rect>
     </property>
    </widget>
@@ -253,7 +289,7 @@
       <x>210</x>
       <y>253</y>
       <width>330</width>
-      <height>26</height>
+      <height>30</height>
      </rect>
     </property>
    </widget>
@@ -282,7 +318,7 @@
       <x>210</x>
       <y>184</y>
       <width>330</width>
-      <height>26</height>
+      <height>30</height>
      </rect>
     </property>
    </widget>
@@ -292,7 +328,7 @@
       <x>210</x>
       <y>117</y>
       <width>330</width>
-      <height>26</height>
+      <height>30</height>
      </rect>
     </property>
    </widget>
@@ -306,7 +342,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Nombre</string>
+     <string>Cédula</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -322,7 +358,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Usuario</string>
+     <string>Nombre:</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

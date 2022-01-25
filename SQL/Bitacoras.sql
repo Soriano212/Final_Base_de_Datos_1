@@ -24,53 +24,65 @@ CREATE TABLE bitacora_respuesta(
 
 /*TRIGGERS De Bitacora de ingreso de una encuesta.*/
 
+DELIMITER $$
 CREATE TRIGGER encuesta_insert
 AFTER INSERT ON encuesta
 FOR EACH ROW 
 BEGIN
     INSERT INTO bitacora_encuesta VALUES 
         ('INSERT', 'encuesta', NEW.id_encuesta, NULL, NULL, NEW.cedula, CURRENT_USER(), NOW());
-END;
+END $$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER abierta_insert
 AFTER INSERT ON abierta
 FOR EACH ROW 
 BEGIN
     INSERT INTO bitacora_encuesta VALUES 
         ('INSERT', 'abierta', NEW.id_encuesta, NEW.pos_pregunta, NULL, NULL, CURRENT_USER(), NOW());
-END;
+END $$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER cerrada_insert
 AFTER INSERT ON cerrada
 FOR EACH ROW 
 BEGIN
     INSERT INTO bitacora_encuesta VALUES 
         ('INSERT', 'cerrada', NEW.id_encuesta, NEW.pos_pregunta, NULL, NULL, CURRENT_USER(), NOW());
-END;
+END $$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER opcion_insert
 AFTER INSERT ON opcion
 FOR EACH ROW 
 BEGIN
     INSERT INTO bitacora_encuesta VALUES 
         ('INSERT', 'opcion', NEW.id_encuesta, NEW.pos_pregunta, NEW.pos_opcion, NULL, CURRENT_USER(), NOW());
-END;
+END $$
+DELIMITER ;
 
 
 /*TRIGGERS De Bitacora de ingreso de una respuesta.*/
 
+DELIMITER $$
 CREATE TRIGGER responde_abierta_insert
 AFTER INSERT ON responde_abierta
 FOR EACH ROW 
 BEGIN
     INSERT INTO bitacora_respuesta VALUES 
         ('INSERT', 'responde_abierta', NEW.id_encuesta, NEW.pos_pregunta, NULL, NEW.cedula, CURRENT_USER(), NOW());
-END;
+END $$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER escoge_opcion_insert
 AFTER INSERT ON escoge_opcion
 FOR EACH ROW 
 BEGIN
     INSERT INTO bitacora_respuesta VALUES 
         ('INSERT', 'escoge_opcion', NEW.id_encuesta, NEW.pos_pregunta, NEW.pos_opcion, NEW.cedula, CURRENT_USER(), NOW());
-END;
+END $$
+DELIMITER ;

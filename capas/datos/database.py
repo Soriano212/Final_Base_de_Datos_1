@@ -1,21 +1,61 @@
+from typing import overload
 import pymysql
 import logging
 
 class DataBase:
     __instance = None
-    
+
     def __new__(cls):
         if DataBase.__instance is None:
             print('Nueva instancia')
             DataBase.__instance = object.__new__(cls)
         
         return DataBase.__instance
-    
+
     def __init__(self):
         self.connection = pymysql.connect(
                 host='localhost',
-                user='root',
-                password='admin',
+                user='inicio',
+                password='inicio',
+                database='soriano_malo_final'
+            )
+        
+        self.cursor = self.connection.cursor()
+
+    def usuario_inicio(self):
+        self.cursor.close();
+        self.connection.close();
+        
+        self.connection = pymysql.connect(
+                host='localhost',
+                user='inicio',
+                password='inicio',
+                database='soriano_malo_final'
+            )
+        
+        self.cursor = self.connection.cursor()
+
+    def usuario_encuestado(self):
+        self.cursor.close();
+        self.connection.close();
+        
+        self.connection = pymysql.connect(
+                host='localhost',
+                user='encuestado',
+                password='encuestado',
+                database='soriano_malo_final'
+            )
+        
+        self.cursor = self.connection.cursor()
+
+    def usuario_creador(self):
+        self.cursor.close();
+        self.connection.close();
+        
+        self.connection = pymysql.connect(
+                host='localhost',
+                user='creador',
+                password='creador',
                 database='soriano_malo_final'
             )
         
@@ -90,6 +130,30 @@ class DataBase:
 
     def llave_ultimo_insert(self) -> tuple | int:
         sql = "SELECT LAST_INSERT_ID()"
+        
+        try:
+            self.cursor.execute(sql)
+            datos = self.cursor.fetchone()
+            return datos
+        
+        except pymysql.err.OperationalError as e:
+            logging.warning("Error De Operacion: " + str(e))
+            return 1
+
+    def usuario_res_encuesta(self, cedula: str, id_encuesta: int) -> tuple | int:
+        sql = "CALL usuario_res_encuesta("+"'"+cedula+"',"+str(id_encuesta)+")"
+        
+        try:
+            self.cursor.execute(sql)
+            datos = self.cursor.fetchone()
+            return datos
+        
+        except pymysql.err.OperationalError as e:
+            logging.warning("Error De Operacion: " + str(e))
+            return 1
+
+    def puede_crear_encuesta(self, cedula: str) -> tuple | int:
+        sql = "CALL puede_crear_encuesta("+"'"+cedula+"')"
         
         try:
             self.cursor.execute(sql)

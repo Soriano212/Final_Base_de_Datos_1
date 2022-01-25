@@ -1,6 +1,5 @@
 from datetime import datetime
 import logging
-import re
 from capas.datos.database import DataBase
 
 db = DataBase()
@@ -137,6 +136,24 @@ class Encuesta():
     def ordenar_preguntas(self):
         self.preguntas = sorted(self.preguntas)
 
+    def eliminar_pregunta(self, pos_pregunta: str):
+        pre: Pregunta
+        cambio = False
+        for pre in self.preguntas:
+            if str(pre.pos_pregunta) == pos_pregunta:
+                borrar = pre
+                cambio = True
+            if cambio:
+                pre.pos_pregunta -= 1
+        
+        if cambio:
+            self.preguntas.remove(borrar)
+            
+        
+        self.ordenar_preguntas()
+        
+        return cambio
+
     def publicar(self, cedula: str) -> int:
         res = db.insert('encuesta', titulo = self.titulo, cedula = cedula)
         
@@ -228,6 +245,19 @@ class Encuesta():
         else:
             #Error al buscar encuesta
             return 2
+
+    def usuarioResEncuesta(cls, cedula: str, id_encuesta: str) -> int:
+        datos = db.usuario_res_encuesta(cedula, int(id_encuesta))
+        
+        if type(datos) is tuple:
+            if len(datos) == 1:
+                return datos[0]
+            else:
+                #Se obtuvieron otros datos
+                return -1
+        else:
+            #Error al ejecutar
+            return -2
 
 class ListaEncuestas():
     def __init__(self):

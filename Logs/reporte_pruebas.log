@@ -1381,3 +1381,562 @@ INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918
 INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='4' AND pos_pregunta='3' AND id_encuesta='13'
 INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='13'
 INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Log creado el: 2022-1-22_18-9-40
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Como estas 2','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 14
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('14','1','Si es','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('1','1','Verdadero','14')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('1','2','Falso','14')
+INFO:root:Opcion Registrada.
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Mario 2','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 15
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('15','1','Como estas')
+INFO:root:Pregunta abierta Registrada.
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Juan marino','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 16
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('22222','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 17
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('321321','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 18
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Título','1720688918')
+INFO:root:Error de Integridad: (1062, "Duplicate entry 'Título-1720688918' for key 'encuesta.titulo'")
+INFO:root:Error la clave primaria de la encuesta ya esta registrada o titulo por usuario ya registrado.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Título','1720688918')
+INFO:root:Error de Integridad: (1062, "Duplicate entry 'Título-1720688918' for key 'encuesta.titulo'")
+INFO:root:Error la clave primaria de la encuesta ya esta registrada o titulo por usuario ya registrado.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Título','1720688918')
+INFO:root:Error de Integridad: (1062, "Duplicate entry 'Título-1720688918' for key 'encuesta.titulo'")
+INFO:root:Error la clave primaria de la encuesta ya esta registrada o titulo por usuario ya registrado.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Como estas 4','1720688918')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 22
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+WARNING:root:Error De Operacion: (1305, 'PROCEDURE soriano_malo_final.usuario_res_pregunta does not exist')
+INFO:root:Log creado el: 2022-1-22_18-17-23
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-22_18-18-11
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-22_18-19-3
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-22_18-19-30
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Log creado el: 2022-1-22_18-20-58
+INFO:root:Log creado el: 2022-1-22_18-21-48
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='13'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='13'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('1720688900','1','13','Yo creo q no')
+INFO:root:Error de Integridad: (1062, "Duplicate entry '1720688900-1-13' for key 'responde_abierta.cedula'")
+WARNING:root:Error la clave primaria de la respuesta abierta ya esta registrada.
+WARNING:root:Error la clave primaria de una respuesta ya esta registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688900','1','14','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:----------------------------------------------
+Log creado el: 2022-1-22_18-27-43
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+WARNING:root:Error De Operacion: (1370, "execute command denied to user 'inicio'@'localhost' for routine 'soriano_malo_final.puede_crear_encuesta'")
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_19-56-22
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_19-57-7
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_20-13-17
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-10-5
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-26-6
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-27-52
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'inicio'@'localhost' for table 'encuesta'")
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-29-1
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-34-29
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-36-3
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='1'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'responde_abierta'")
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='1'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'escoge_opcion'")
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='3'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'responde_abierta'")
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='3'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'escoge_opcion'")
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='3'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'responde_abierta'")
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='3'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'escoge_opcion'")
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-37-24
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='1'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'responde_abierta'")
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='1'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'escoge_opcion'")
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-38-40
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-39-47
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1370, "execute command denied to user 'encuestado'@'localhost' for routine 'soriano_malo_final.usuario_res_encuesta'")
+WARNING:root:Error De Operacion: (1370, "execute command denied to user 'encuestado'@'localhost' for routine 'soriano_malo_final.usuario_res_encuesta'")
+WARNING:root:Error De Operacion: (1370, "execute command denied to user 'encuestado'@'localhost' for routine 'soriano_malo_final.usuario_res_encuesta'")
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-40-43
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+WARNING:root:Error De Operacion: (1370, "execute command denied to user 'encuestado'@'localhost' for routine 'soriano_malo_final.usuario_res_encuesta'")
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-48-18
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='3'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'responde_abierta'")
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='3'
+WARNING:root:Error De Operacion: (1142, "SELECT command denied to user 'encuestado'@'localhost' for table 'escoge_opcion'")
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-50-57
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-54-36
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_21-57-42
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688918','1','14','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='1' AND id_encuesta='14'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%como%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%0150440378%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688900%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando Usuario','1720688900')
+WARNING:root:Error De Operacion: (1142, "INSERT command denied to user 'encuestado'@'localhost' for table 'encuesta'")
+WARNING:root:Error al registrar la encuesta.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando Usuario','1720688900')
+WARNING:root:Error De Operacion: (1142, "INSERT command denied to user 'encuestado'@'localhost' for table 'encuesta'")
+WARNING:root:Error al registrar la encuesta.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando Usuario','1720688900')
+WARNING:root:Error De Operacion: (1142, "INSERT command denied to user 'encuestado'@'localhost' for table 'encuesta'")
+WARNING:root:Error al registrar la encuesta.
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando Usuario','1720688900')
+WARNING:root:Error De Operacion: (1142, "INSERT command denied to user 'encuestado'@'localhost' for table 'encuesta'")
+WARNING:root:Error al registrar la encuesta.
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_22-4-8
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='1'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='4'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%pro%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%pro%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='7'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='7'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('1720688918','1','7','mario@u.com')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688918','2','7','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('1720688918','3','7','2')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%1720688918%' AND titulo LIKE '%pro%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='1' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='2' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688918'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='1720688900'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='3' AND pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='4' AND id_encuesta='3'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_22-26-4
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_22-28-25
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_22-33-46
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_22-35-56
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_22-39-16
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-22_22-41-47
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'

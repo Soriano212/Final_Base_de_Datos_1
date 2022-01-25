@@ -1,5 +1,10 @@
 import sys
 from PyQt6 import QtCore, QtWidgets
+
+from capas.interfaz.DialogoAC import Ui_DialogoAC
+from capas.interfaz.InicioSesion import Ui_InicioSesion
+from capas.interfaz.Menu import Ui_Menu
+from capas.interfaz.CrearEncuesta import Ui_CrearEncuesta
 from capas.interfaz.CrearPregunta import Ui_CrearPregunta
 from capas.interfaz.MisEncuestas import Ui_MisEncuestas
 from capas.interfaz.ResponderEncuesta import Ui_ResponderEncuesta
@@ -9,11 +14,6 @@ from capas.interfaz.TodasEncuestas import Ui_TodasEncuestas
 from capas.negocios.usuario import *
 from capas.negocios.encuesta import *
 from capas.negocios.respuesta import *
-
-from capas.interfaz.DialogoAC import Ui_DialogoAC
-from capas.interfaz.InicioSesion import Ui_InicioSesion
-from capas.interfaz.Menu import Ui_Menu
-from capas.interfaz.CrearEncuesta import Ui_CrearEncuesta
 
 class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
     def __init__(self, parent=None) -> None:
@@ -74,9 +74,22 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
         usuario = Usuario.inicioSesion(Usuario, email, contra)
         
         if type(usuario) is Usuario:
-            self.ven_dialogo.dialog("Aviso", "Inicio de Sesion correcto.", 1, 1)
             self.ven_menu = VenMenu(self.cerrar_sesion, usuario)
             self.hide()
+            if self.comboBox.currentIndex() == 0:
+                self.ven_dialogo.dialog("Aviso", "Inicio de Sesion correcto.\nSesion de Encuestado", 1, 1)
+                Usuario.cambioUsuario(Usuario, 2)
+                self.ven_menu.btn_mis_encuestas.setEnabled(False)
+                self.ven_menu.btn_encuesta.setEnabled(False)
+                self.ven_menu.action_crear_encuesta.setEnabled(False)
+                self.ven_menu.action_mis_Encuestas.setEnabled(False)
+            else:
+                self.ven_dialogo.dialog("Aviso", "Inicio de Sesion correcto.\nSesion de Creador", 1, 1)
+                Usuario.cambioUsuario(Usuario, 3)
+                self.ven_menu.btn_mis_encuestas.setEnabled(True)
+                self.ven_menu.btn_encuesta.setEnabled(True)
+                self.ven_menu.action_crear_encuesta.setEnabled(True)
+                self.ven_menu.action_mis_Encuestas.setEnabled(True)
             self.ven_menu.show()
             self.ven_dialogo.show()
             self.limpiar()
@@ -101,6 +114,7 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
     def cerrar_sesion(self):
         self.ven_menu.close()
         self.ven_menu = None
+        Usuario.cambioUsuario(Usuario, 1)
         self.show()
 
 class VenDialogo(QtWidgets.QDialog, Ui_DialogoAC):
@@ -131,9 +145,17 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         self.action_mis_Encuestas.triggered.connect(self.mis_encuestas)
 
     def crear_encuesta(self):
-        self.ven_crear_encuesta = VenCrearEncuesta(self.usuario, self.publicar_encuesta)
-        self.ven_crear_encuesta.show()
-        self.ven_crear_encuesta.activateWindow()
+        res = self.usuario.pruedeCrearEncuesta()
+        if res == 1:
+            self.ven_crear_encuesta = VenCrearEncuesta(self.usuario, self.publicar_encuesta)
+            self.ven_crear_encuesta.show()
+            self.ven_crear_encuesta.activateWindow()
+        elif res == 0:
+            self.ven_dialogo.dialog("Aviso", "El usuario ya no puede crear mas encuestas.\nLimite: 3", 1, 2)
+            self.ven_dialogo.show()
+        else:
+            self.ven_dialogo.dialog("Error", "Error en la base de datos.", 1, 4)
+            self.ven_dialogo.show()
 
     def todas_encuestas(self):
         self.ven_todas_encuestas = VenTodasEncuestas(self.usuario.cedula)
@@ -186,15 +208,13 @@ class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
 
     def agregar_opcion(self):
         titulo = self.txt_opcion_om.text()
-        if len(titulo) >= 4:
+        if len(titulo) >= 1:
             op = Opcion(titulo)
             self.pregunta_om.agregar_opcion(op)
             self.recargar_om()
-            
-            self.ven_dialogo.dialog("Correcto", "Opcion agregada correctamente.", 1, 1)
-            self.ven_dialogo.show()
+            self.txt_opcion_om.setText('')
         else:
-            self.ven_dialogo.dialog("Error", "El largo minimo del texto de la opcion es de 4.", 1, 2)
+            self.ven_dialogo.dialog("Error", "El largo minimo del texto de la opcion es de 1.", 1, 2)
             self.ven_dialogo.show()
 
     def recargar_om(self):
@@ -244,38 +264,38 @@ class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
 
     def cambiar_texto(self):
         titulo = self.txt_pregunta_texto.text()
-        if len(titulo) >= 4:
+        if len(titulo) >= 1:
             self.pregunta_texto.enunciado = titulo
             self.label_pregunta_texto_box.setText(titulo)
             self.txt_pregunta_texto.setText('')
             self.ven_dialogo.dialog("Correcto", "Enunciado cambiado correctamente.", 1, 1)
             self.ven_dialogo.show()
         else:
-            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 4.", 1, 2)
+            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 1.", 1, 2)
             self.ven_dialogo.show()
 
     def cambiar_vf(self):
         titulo = self.txt_pregunta_vf.text()
-        if len(titulo) >= 4:
+        if len(titulo) >= 1:
             self.pregunta_vf.enunciado = titulo
             self.label_pregunta_vf_box.setText(titulo)
             self.txt_pregunta_vf.setText('')
             self.ven_dialogo.dialog("Correcto", "Enunciado cambiado correctamente.", 1, 1)
             self.ven_dialogo.show()
         else:
-            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 4.", 1, 2)
+            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 1.", 1, 2)
             self.ven_dialogo.show()
 
     def cambiar_om(self):
         titulo = self.txt_pregunta_om.text()
-        if len(titulo) >= 4:
+        if len(titulo) >= 1:
             self.pregunta_om.enunciado = titulo
             self.label_pregunta_om_box.setText(titulo)
             self.txt_pregunta_om.setText('')
             self.ven_dialogo.dialog("Correcto", "Enunciado cambiado correctamente.", 1, 1)
             self.ven_dialogo.show()
         else:
-            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 4.", 1, 2)
+            self.ven_dialogo.dialog("Error", "El largo minimo del Enunciado es de 1.", 1, 2)
             self.ven_dialogo.show()
 
     def limpiar_texto(self):
@@ -313,10 +333,27 @@ class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
         self.btn_cambiar.clicked.connect(self.titulo)
         self.btn_crear.clicked.connect(self.crear_pregunta)
         self.btn_publicar.clicked.connect(self.publicar)
+        self.btn_eliminar.clicked.connect(self.eliminar)
 
     def crear_pregunta(self):
         self.ven_crear_pregunta = VenCrearPregunta(self.encuesta, self.recargar)
         self.ven_crear_pregunta.show()
+
+    def eliminar(self):
+        pos = self.txt_numero.text()
+        self.ven_dialogo.dialog("Eliminar", "Desea eliminar la pregunta "+pos+"?", 0, 4)
+        self.ven_dialogo.exec()
+        
+        if self.ven_dialogo.result() == 1:
+            res = self.encuesta.eliminar_pregunta(pos)
+            if res:
+                self.ven_dialogo.dialog("Correcto", "Pregunta eliminada correctamente.", 1, 1)
+                self.ven_dialogo.show()
+                self.recargar_preguntas(self.encuesta.datos_mostrar())
+            else:
+                self.ven_dialogo.dialog("Error", "Posicion de la pregunta erronea.", 1, 2)
+                self.ven_dialogo.show()
+        self.txt_numero.setText('')
 
     def titulo(self):
         titulo = self.txt_titulo.text()
@@ -332,8 +369,6 @@ class VenCrearEncuesta(QtWidgets.QWidget, Ui_CrearEncuesta):
 
     def recargar(self):
         self.recargar_preguntas(self.encuesta.datos_mostrar())
-        self.ven_dialogo.dialog("Correcto", "Pregunta Agregada.", 1, 1)
-        self.ven_dialogo.show()
 
     def publicar(self):
         res = self.encuesta.publicar(self.usuario.cedula)
@@ -408,10 +443,20 @@ class VenTodasEncuestas(QtWidgets.QWidget, Ui_TodasEncuestas):
             if grupo[1].isChecked():
                 grupo[1].setChecked(False)
                 
-                self.ven_responder_encuesta = VenResponderEncuesta(grupo[0], self.cedula, self.mensaje, self.correcto)
-                self.ven_responder_encuesta.show()
+                res = Encuesta.usuarioResEncuesta(Encuesta, self.cedula, grupo[0])
+                if res == 0:
+                    self.ven_responder_encuesta = VenResponderEncuesta(grupo[0], self.cedula, self.mensaje, self.correcto)
+                    self.ven_responder_encuesta.show()
+                    return True
+                elif res == 1:
+                    self.ven_dialogo.dialog("Aviso", "El usuario ya respondio esta encuesta", 1, 2)
+                    self.ven_dialogo.show()
+                    return False
+                else:
+                    self.ven_dialogo.dialog("Error", "Error en la base de datos.", 1, 4)
+                    self.ven_dialogo.show()
+                    return False
                 
-                return True
         return False
 
     def mensaje(self):

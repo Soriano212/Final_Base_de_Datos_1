@@ -51,6 +51,27 @@ class Usuario():
             #Error al buscar usuario
             return 2
 
+    def pruedeCrearEncuesta(self) -> int:
+        datos = db.puede_crear_encuesta(self.cedula)
+        
+        if type(datos) is tuple:
+            if len(datos) == 1:
+                return datos[0]
+            else:
+                #Se obtuvieron otros datos
+                return -1
+        else:
+            #Error al ejecutar
+            return -2
+
+    def cambioUsuario(cls, tipo: int):
+        if tipo == 1:
+            db.usuario_inicio()
+        elif tipo == 2:
+            db.usuario_encuestado()
+        elif tipo == 3:
+            db.usuario_creador()
+
 class ListaUsuarios():
     def __init__(self) -> None:
         self.lista = []

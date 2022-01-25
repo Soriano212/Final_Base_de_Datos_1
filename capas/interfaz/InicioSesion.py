@@ -26,33 +26,33 @@ class Ui_InicioSesion(object):
         self.tab_sesion.setObjectName("tab_sesion")
         
         self.label_image_usuario = QtWidgets.QLabel(self.tab_sesion)
-        self.label_image_usuario.setGeometry(QtCore.QRect(10, 110, 171, 161))
+        self.label_image_usuario.setGeometry(QtCore.QRect(10, 90, 171, 161))
         self.label_image_usuario.setText("")
         self.label_image_usuario.setPixmap(QtGui.QPixmap("icons/usuario.png"))
         self.label_image_usuario.setScaledContents(True)
         self.label_image_usuario.setObjectName("label_image_usuario")
         
         self.label_email_sesion = QtWidgets.QLabel(self.tab_sesion)
-        self.label_email_sesion.setGeometry(QtCore.QRect(210, 106, 331, 31))
+        self.label_email_sesion.setGeometry(QtCore.QRect(210, 100, 331, 31))
         self.label_email_sesion.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_email_sesion.setObjectName("label_email_sesion")
         
         self.label__contrasenia_sesion = QtWidgets.QLabel(self.tab_sesion)
-        self.label__contrasenia_sesion.setGeometry(QtCore.QRect(210, 176, 331, 31))
+        self.label__contrasenia_sesion.setGeometry(QtCore.QRect(210, 170, 331, 31))
         self.label__contrasenia_sesion.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label__contrasenia_sesion.setObjectName("label__contrasenia_sesion")
         
         self.txt_email_sesion = QtWidgets.QLineEdit(self.tab_sesion)
-        self.txt_email_sesion.setGeometry(QtCore.QRect(210, 143, 330, 30))
+        self.txt_email_sesion.setGeometry(QtCore.QRect(210, 137, 330, 30))
         self.txt_email_sesion.setObjectName("txt_email_sesion")
         
         self.txt_contrasenia_sesion = QtWidgets.QLineEdit(self.tab_sesion)
-        self.txt_contrasenia_sesion.setGeometry(QtCore.QRect(210, 210, 330, 30))
-        self.txt_contrasenia_sesion.setObjectName("txt_contrasenia_sesion")
+        self.txt_contrasenia_sesion.setGeometry(QtCore.QRect(210, 204, 330, 30))
         self.txt_contrasenia_sesion.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
+        self.txt_contrasenia_sesion.setObjectName("txt_contrasenia_sesion")
         
         self.btn_ingresar = QtWidgets.QPushButton(self.tab_sesion)
-        self.btn_ingresar.setGeometry(QtCore.QRect(310, 260, 121, 41))
+        self.btn_ingresar.setGeometry(QtCore.QRect(40, 290, 121, 41))
         self.btn_ingresar.setObjectName("btn_ingresar")
         
         self.line_1 = QtWidgets.QFrame(self.tab_sesion)
@@ -69,6 +69,17 @@ class Ui_InicioSesion(object):
         self.label_titulo_1.setFont(font)
         self.label_titulo_1.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_titulo_1.setObjectName("label_titulo_1")
+        
+        self.label__contrasenia_sesion_2 = QtWidgets.QLabel(self.tab_sesion)
+        self.label__contrasenia_sesion_2.setGeometry(QtCore.QRect(210, 244, 331, 31))
+        self.label__contrasenia_sesion_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label__contrasenia_sesion_2.setObjectName("label__contrasenia_sesion_2")
+        
+        self.comboBox = QtWidgets.QComboBox(self.tab_sesion)
+        self.comboBox.setGeometry(QtCore.QRect(280, 284, 191, 31))
+        self.comboBox.setObjectName("comboBox")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
         
         InicioSesion.addTab(self.tab_sesion, "")
         
@@ -153,6 +164,9 @@ class Ui_InicioSesion(object):
         self.label__contrasenia_sesion.setText(_translate("InicioSesion", "Contraseña"))
         self.btn_ingresar.setText(_translate("InicioSesion", "Ingresar"))
         self.label_titulo_1.setText(_translate("InicioSesion", "Bienvenido"))
+        self.label__contrasenia_sesion_2.setText(_translate("InicioSesion", "Permisos"))
+        self.comboBox.setItemText(0, _translate("InicioSesion", "Encuestado"))
+        self.comboBox.setItemText(1, _translate("InicioSesion", "Creador"))
         InicioSesion.setTabText(InicioSesion.indexOf(self.tab_sesion), _translate("InicioSesion", "Iniciar Sesión"))
         self.label__contrasenia_registro.setText(_translate("InicioSesion", "Contraseña"))
         self.label_email_registro.setText(_translate("InicioSesion", "Email"))
