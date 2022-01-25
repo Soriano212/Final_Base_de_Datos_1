@@ -1,5 +1,6 @@
 import sys
 from PyQt6 import QtCore, QtWidgets
+from capas.interfaz.Cuenta import Ui_Cuenta
 
 from capas.interfaz.DialogoAC import Ui_DialogoAC
 from capas.interfaz.InicioSesion import Ui_InicioSesion
@@ -143,6 +144,7 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
         self.action_crear_encuesta.triggered.connect(self.crear_encuesta)
         self.action_todas_ecuestas.triggered.connect(self.todas_encuestas)
         self.action_mis_Encuestas.triggered.connect(self.mis_encuestas)
+        self.action_administrar.triggered.connect(self.cuenta)
 
     def crear_encuesta(self):
         res = self.usuario.pruedeCrearEncuesta()
@@ -177,6 +179,67 @@ class VenMenu(QtWidgets.QMainWindow, Ui_Menu):
     def publicar_encuesta(self):
         self.ven_dialogo.dialog("Correcto", "Encuesta publicada Correctamente.", 1, 1)
         self.ven_dialogo.show()
+
+    def cuenta(self):
+        self.ven_cuenta = VenCuenta(self.usuario, self.cambio_nombre)
+        self.ven_cuenta.show()
+
+    def cambio_nombre(self):
+        self.label_Usuario.setText(self.usuario.nombre)
+
+class VenCuenta(QtWidgets.QWidget, Ui_Cuenta):
+    def __init__(self, usuario: Usuario, funcion_cambio, parent=None) -> None:
+        super(VenCuenta, self).__init__(parent)
+        self.setupUi(self)
+        self.ven_dialogo = VenDialogo()
+        self.usuario = usuario
+        self.cambio = funcion_cambio
+        self.datos()
+        
+        self.btn_cambiar.clicked.connect(self.cambiar)
+
+    def datos(self):
+        self.label_cedula.setText(self.usuario.cedula)
+        self.label_nombre.setText(self.usuario.nombre)
+        self.label_email.setText(self.usuario.email)
+
+    def cambiar(self):
+        texto = self.txt_nuevo.text()
+        if len(texto)>=3:
+            index = self.combo_box.currentIndex()
+            val = True
+            
+            if index == 1:
+                if "@" not in texto and "." not in texto: val = False
+            
+            if val:
+                self.ven_dialogo.dialog("Aviso", "Desea cambiar su "+self.combo_box.currentText()+" con: '"+texto+"'.", 0, 0)
+                self.ven_dialogo.exec()
+                
+                if self.ven_dialogo.result() == 1:
+                    res = self.usuario.actualizar(index, texto)
+                    match res:
+                        case 0:
+                            self.ven_dialogo.dialog("Correcto", "Valores actualizados correctamente.", 1, 1)
+                            self.ven_dialogo.show()
+                            self.txt_nuevo.setText('')
+                            self.cambio()
+                            self.datos()
+                        case 1:
+                            self.ven_dialogo.dialog("Error", "Error en la base de datos.", 1, 2)
+                            self.ven_dialogo.show()
+                        case 2:
+                            self.ven_dialogo.dialog("Error", "El email nuevo ya esta usado por otro usuario.", 1, 2)
+                            self.ven_dialogo.show()
+                        case -1:
+                            self.ven_dialogo.dialog("Error", "Error al enviar datos.", 1, 2)
+                            self.ven_dialogo.show()
+            else:
+                self.ven_dialogo.dialog("Error", "Email invalido.", 1, 2)
+                self.ven_dialogo.show()
+        else:
+            self.ven_dialogo.dialog("Error", "El nuevo valor debe tener un largo minimo de 3.", 1, 2)
+            self.ven_dialogo.show()
 
 class VenCrearPregunta(QtWidgets.QTabWidget, Ui_CrearPregunta):
     def __init__(self, encuesta: Encuesta, funcion_recargar, parent=None) -> None:

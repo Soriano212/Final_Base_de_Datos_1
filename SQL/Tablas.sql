@@ -76,9 +76,3 @@ CREATE TABLE responde_abierta(
 /* Notas
     SELECT LAST_INSERT_ID();
 */
-
-/*Datos de Prueba*/
-
-INSERT INTO usuario(cedula, nombre, email, contrasenia) VALUES 
-    ('1720688918', 'Mario Casta', 'mario@u.com', SHA1('mario')),
-    ('1720688900', 'Juana De Arcos', 'juana@u.com', SHA1('juana'));

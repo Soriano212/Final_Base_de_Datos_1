@@ -1940,3 +1940,83 @@ INFO:root:
 Log creado el: 2022-1-22_22-41-47
 
 INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='juana@u.com' AND contrasenia='fbaf40c551682f72e2261c95566dbfdcb7e00951'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_8-22-19
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_10-35-44
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_10-37-23
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando UPDATE: UPDATE usuario SET 'nombre','<function text at 0x000002C2405C6A70>' WHERE cedula='1720688918'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_10-39-28
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_10-41-16
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_10-41-58
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_15-33-16
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_15-37-37
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando UPDATE: UPDATE usuario SET nombre='Mariano Cueva' WHERE cedula='1720688918'LIMIT 1
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_15-41-38
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando UPDATE: UPDATE usuario SET contrasenia='74cf0e9a3c2b904e9c445771cdccb3e6ce3e4da7' WHERE cedula='1720688918' LIMIT 1
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-1-25_15-42-54
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='74cf0e9a3c2b904e9c445771cdccb3e6ce3e4da7'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='addb47291ee169f330801ce73520b96f2eaf20ea'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mario@u.com' AND contrasenia='74cf0e9a3c2b904e9c445771cdccb3e6ce3e4da7'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando UPDATE: UPDATE usuario SET email='juana@u.com' WHERE cedula='1720688918' LIMIT 1
+INFO:root:Error de Integridad: (1062, "Duplicate entry 'juana@u.com' for key 'usuario.email'")
+INFO:root:Realizando UPDATE: UPDATE usuario SET email='mariano@u.com' WHERE cedula='1720688918' LIMIT 1
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='mariano@u.com' AND contrasenia='74cf0e9a3c2b904e9c445771cdccb3e6ce3e4da7'
+WARNING:root:Error De Operacion: (1370, "execute command denied to user 'creador'@'localhost' for routine 'soriano_malo_final.puede_crear_encuesta'")
+WARNING:root:Error De Operacion: (1370, "execute command denied to user 'creador'@'localhost' for routine 'soriano_malo_final.puede_crear_encuesta'")

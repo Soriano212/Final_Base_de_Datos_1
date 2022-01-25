@@ -1,3 +1,4 @@
+import email
 import hashlib
 import logging
 from capas.datos.database import DataBase
@@ -71,6 +72,24 @@ class Usuario():
             db.usuario_encuestado()
         elif tipo == 3:
             db.usuario_creador()
+
+    def actualizar(self, tipo: int, texto: str) -> int:
+        res = -1
+        match tipo:
+            case 0: res = db.update('usuario', 'nombre', texto, cedula = self.cedula)
+            case 1: res = db.update('usuario', 'email', texto, cedula = self.cedula)
+            case 2: res = db.update('usuario', 'contrasenia', self.sha1(texto), cedula = self.cedula)
+        
+        if res == 0:
+            db.commit()
+            match tipo:
+                case 0: self.nombre = texto
+                case 1: self.email = texto
+                case 2: self.contrasenia = self.sha1(texto)
+        else:
+            db.rollback()
+        
+        return res
 
 class ListaUsuarios():
     def __init__(self) -> None:

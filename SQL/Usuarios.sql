@@ -7,7 +7,7 @@ FLUSH PRIVILEGES;
 /* Creando usuario encuestado */
 
 CREATE USER 'encuestado'@'localhost' IDENTIFIED BY 'encuestado';
-GRANT SELECT ON soriano_malo_final.usuario TO 'encuestado'@'localhost';
+GRANT SELECT, UPDATE ON soriano_malo_final.usuario TO 'encuestado'@'localhost';
 GRANT SELECT ON soriano_malo_final.encuesta TO 'encuestado'@'localhost';
 GRANT SELECT ON soriano_malo_final.abierta TO 'encuestado'@'localhost';
 GRANT SELECT ON soriano_malo_final.cerrada TO 'encuestado'@'localhost';
@@ -22,7 +22,7 @@ FLUSH PRIVILEGES;
 /* Creando usuario creador */
 
 CREATE USER 'creador'@'localhost' IDENTIFIED BY 'creador';
-GRANT SELECT ON soriano_malo_final.usuario TO 'creador'@'localhost';
+GRANT SELECT, UPDATE ON soriano_malo_final.usuario TO 'creador'@'localhost';
 GRANT SELECT, INSERT ON soriano_malo_final.encuesta TO 'creador'@'localhost';
 GRANT SELECT, INSERT ON soriano_malo_final.abierta TO 'creador'@'localhost';
 GRANT SELECT, INSERT ON soriano_malo_final.cerrada TO 'creador'@'localhost';
@@ -36,5 +36,6 @@ GRANT EXECUTE ON PROCEDURE soriano_malo_final.puede_crear_encuesta TO 'creador'@
 FLUSH PRIVILEGES;
 
 /* Muestra privilegios */
-
-SHOW GRANTS FOR 'encuestado'@'localhost';
+/*
+    SHOW GRANTS FOR 'encuestado'@'localhost';
+*/
