@@ -61,7 +61,7 @@ class VenInicioSesion(QtWidgets.QTabWidget, Ui_InicioSesion):
                         self.ven_dialogo.dialog("Aviso", "Error al conectar con el servidor.\nContacte con el Administrador.", 1, 2)
                         self.ven_dialogo.show()
                     case 2: 
-                        self.ven_dialogo.dialog("Aviso", "Ya hay un usuario registrado con ese email.", 1, 0)
+                        self.ven_dialogo.dialog("Aviso", "Ya hay un usuario registrado con ese email\n o con esa cedula.", 1, 0)
                         self.ven_dialogo.show()
                     case 0:
                         self.ven_dialogo.dialog("Aviso", "Usuario registrado correctamente.\nAhora puede iniciar Sesion.", 1, 1)

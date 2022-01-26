@@ -47,12 +47,13 @@ SELECT * FROM bitacora_respuesta;  #Tabla de Bitacora de ingreso de Respuestas
 
 ###########################
 
-Usuarios:
+Usuarios de Prueba:
 _______________
 
 Email:               Contrasenia:
 maria@u.com	         maria
 alberto@u.com        alberto
+joel@u.com           joel
 _______________
 
 ###########################
