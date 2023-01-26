@@ -1,0 +1,151 @@
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-11-31
+
+INFO:root:Realizando INSERT: INSERT INTO Usuario('cedula', 'nombre', 'email', 'contrasenia') VALUES (%s, %s, %s, %s)
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-15-32
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-17-25
+
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-20-13
+
+INFO:root:Realizando INSERT: INSERT INTO Usuario('cedula', 'nombre', 'email', 'contrasenia') VALUES (%s, %s, %s, %s)
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-23-1
+
+INFO:root:Realizando INSERT: INSERT INTO Usuario(cedula, nombre, email, contrasenia) VALUES (%s, %s, %s, %s)
+INFO:root:Error de Integridad: (1062, "Duplicate entry '0150440378' for key 'usuario.PRIMARY'")
+INFO:root:El email ya se encuentra registrado.
+INFO:root:Realizando INSERT: INSERT INTO Usuario(cedula, nombre, email, contrasenia) VALUES (%s, %s, %s, %s)
+INFO:root:Usuario registrado.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='prob@usu.com' AND contrasenia='d4f83c1654071179db3b0aa1cfc5ed8de452c2fe'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='2' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='4' AND id_encuesta='2'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='prob@usu.com' AND contrasenia='d4f83c1654071179db3b0aa1cfc5ed8de452c2fe'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%0150440337%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%0150440337%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-34-47
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='j@j.com' AND contrasenia='5c2dd944dde9e08881bef0894fe7b22a5c9c4b06'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='joel@u.com' AND contrasenia='4816dabf8db1bc6cac35b3a24cab2ff844b5b0c7'
+INFO:root:Realizando INSERT: INSERT INTO Encuesta(id_encuesta, fecha_creacion, titulo, cedula, preguntas) VALUES (%s, %s, %s, %s, %s)
+WARNING:root:Error De Operacion: (1054, "Unknown column 'fecha_creacion' in 'field list'")
+WARNING:root:Error al registrar la encuesta.
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-44-9
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='joel@u.com' AND contrasenia='4816dabf8db1bc6cac35b3a24cab2ff844b5b0c7'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Probando','0150440378')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 8
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('8','1','Er verdad','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('1','1','Verdadero','8')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('1','2','Falso','8')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO abierta(id_encuesta,pos_pregunta,enunciado) VALUES ('8','2','Creando')
+INFO:root:Pregunta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('8','3','Asi es','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','1','Azul','8')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','2','Amarillo','8')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('3','3','Blanco','8')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%0150440378%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='joel@u.com' AND contrasenia='4816dabf8db1bc6cac35b3a24cab2ff844b5b0c7'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%prob%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='1' AND id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='8'
+INFO:root:Realizando INSERT: INSERT INTO RespondeAbierta(cedula, pos_pregunta, id_encuesta, respuesta, enunciado) VALUES (%s, %s, %s, %s, %s)
+WARNING:root:Error De Operacion: (1142, "INSERT command denied to user 'encuestado'@'localhost' for table 'respondeabierta'")
+WARNING:root:Error al registrar la respuesta abierta.
+WARNING:root:Error al registrar las respuestas.
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-47-59
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='joel@u.com' AND contrasenia='4816dabf8db1bc6cac35b3a24cab2ff844b5b0c7'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%prob%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='1' AND id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='8'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_17-49-29
+
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='joel@u.com' AND contrasenia='4816dabf8db1bc6cac35b3a24cab2ff844b5b0c7'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%prob%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM abierta WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM cerrada WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='1' AND id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM opcion WHERE pos_pregunta='3' AND id_encuesta='8'
+INFO:root:Realizando INSERT: INSERT INTO responde_abierta(cedula,pos_pregunta,id_encuesta,respuesta) VALUES ('0150440378','2','8','Prob')
+INFO:root:Respuesta abierta Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','1','8','1')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando INSERT: INSERT INTO escoge_opcion(cedula,pos_pregunta,id_encuesta,pos_opcion) VALUES ('0150440378','3','8','2')
+INFO:root:La opcion escogida Registrada.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='joel@u.com' AND contrasenia='4816dabf8db1bc6cac35b3a24cab2ff844b5b0c7'
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%0150440378%' AND titulo LIKE '%%' AND fecha LIKE '%%'
+INFO:root:Realizando SELECT: SELECT * FROM responde_abierta WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM abierta WHERE pos_pregunta='2' AND id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT * FROM escoge_opcion WHERE id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='1' AND pos_pregunta='1' AND id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='1' AND id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:Realizando SELECT: SELECT enunciado FROM opcion WHERE pos_opcion='2' AND pos_pregunta='3' AND id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT enunciado FROM cerrada WHERE pos_pregunta='3' AND id_encuesta='8'
+INFO:root:Realizando SELECT: SELECT nombre FROM usuario WHERE cedula='0150440378'
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2023-1-26_18-17-48
+
+INFO:root:Realizando INSERT: INSERT INTO Usuario(cedula, nombre, email, contrasenia) VALUES (%s, %s, %s, %s)
+INFO:root:Usuario registrado.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='prob@usu.com' AND contrasenia='d4f83c1654071179db3b0aa1cfc5ed8de452c2fe'
+INFO:root:Realizando SELECT: SELECT cedula,nombre FROM usuario
+INFO:root:Realizando SELECT: SELECT * FROM encuesta WHERE cedula LIKE '%%' AND titulo LIKE '%%' AND fecha LIKE '%%'

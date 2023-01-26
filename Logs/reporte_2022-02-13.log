@@ -1,0 +1,17 @@
+INFO:root:
+
+----------------------------------------------
+Log creado el: 2022-2-13_23-3-32
+
+INFO:root:Realizando INSERT: INSERT INTO usuario(cedula,nombre,email,contrasenia) VALUES ('0104435540','Juan','j@j.com','7110eda4d09e062aa5e4a390b0a572ac0d2c0220')
+INFO:root:Usuario registrado.
+INFO:root:Realizando SELECT: SELECT * FROM usuario WHERE email='j@j.com' AND contrasenia='7110eda4d09e062aa5e4a390b0a572ac0d2c0220'
+INFO:root:Realizando INSERT: INSERT INTO encuesta(titulo,cedula) VALUES ('Q mas','0104435540')
+INFO:root:Encuesta Registrada.
+INFO:root:Aviso: id_encuesta obtenido: 7
+INFO:root:Realizando INSERT: INSERT INTO cerrada(id_encuesta,pos_pregunta,enunciado,seleccionar_varias) VALUES ('7','1','Como estas','0')
+INFO:root:Pregunta cerrada Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('1','1','Verdadero','7')
+INFO:root:Opcion Registrada.
+INFO:root:Realizando INSERT: INSERT INTO opcion(pos_pregunta,pos_opcion,enunciado,id_encuesta) VALUES ('1','2','Falso','7')
+INFO:root:Opcion Registrada.

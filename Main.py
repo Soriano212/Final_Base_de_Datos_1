@@ -2,7 +2,7 @@
 # Alberto Soriano
 # Juan Malo
 
-import capas.interfaz.ctrl as ctrl
+import capas.interfaz.manejador as manejador
 from capas.negocios.encuesta import Abierta, Pregunta
 
 import capas.negocios.usuario as us
@@ -27,4 +27,4 @@ logging.basicConfig(filename='Logs/reporte_'+str(date.today())+'.log', encoding=
 logging.info('\n\n----------------------------------------------\nLog creado el: {}\n'.format(logtime.today()))
 
 if __name__ == "__main__":
-    ctrl.abrir()
+    manejador.abrir()

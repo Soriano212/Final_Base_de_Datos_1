@@ -15,7 +15,7 @@ class RespondeAbierta():
         self.enunciado = enunciado
 
     def responder(self) -> int:
-        res = db.insert('responde_abierta', cedula = self.cedula, pos_pregunta = self.pos_pregunta,
+        res = db.insert_ant('responde_abierta', cedula = self.cedula, pos_pregunta = self.pos_pregunta,
                         id_encuesta = self.id_encuesta, respuesta = self.respuesta)
         
         match res:
@@ -42,7 +42,7 @@ class EscogeOpcion():
         self.enunciado = enunciado
 
     def responder(self) -> int:
-        res = db.insert('escoge_opcion', cedula = self.cedula, pos_pregunta = self.pos_pregunta,
+        res = db.insert_ant('escoge_opcion', cedula = self.cedula, pos_pregunta = self.pos_pregunta,
                         id_encuesta = self.id_encuesta, pos_opcion = self.pos_opcion)
         
         match res:

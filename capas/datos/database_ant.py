@@ -61,35 +61,7 @@ class DataBase:
         
         self.cursor = self.connection.cursor()
 
-    def insert(self, objeto: object) -> int:
-        variables = ""	
-        for dato in objeto.__dict__.keys():
-            variables += f"{dato}, "
-        variables = variables[:-2]
-        
-        valores = "%s, " * len(objeto.__dict__.keys())
-        valores = valores[:-2]
-        
-        print(variables)
-        print(valores)
-        
-        sql = f"INSERT INTO {type(objeto).__name__}({variables}) VALUES ({valores})"
-        
-        logging.info('Realizando INSERT: '+sql)
-        
-        try:
-            self.cursor.execute(sql, tuple(objeto.__dict__.values()))
-        
-        except pymysql.err.OperationalError as e:
-            logging.warning("Error De Operacion: " + str(e))
-            return 1
-        except pymysql.err.IntegrityError as e:
-            logging.info("Error de Integridad: " + str(e))
-            return 2
-        
-        return 0
-    
-    def insert_ant(self, tabla: str, **kwargs) -> int:
+    def insert(self, tabla: str, **kwargs) -> int:
         sql = 'INSERT INTO {}('.format(tabla)
         
         for dato in kwargs.items():

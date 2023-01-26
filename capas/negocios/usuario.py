@@ -10,13 +10,13 @@ class Usuario():
         self.cedula = cedula
         self.nombre = nombre
         self.email = email
-        self.contrasenia = self.sha1(contrasenia)
+        self.contrasenia = str(self.sha1(contrasenia))
 
     def __str__(self):
         return 'Usuario(Cedula: {u.cedula}, Nombre: {u.nombre}, Email: {u.email}, Contraseña: {u.contrasenia})'.format(u = self)
 
     def registrarUsuario(self) -> int:
-        res = db.insert('usuario', cedula = self.cedula, nombre = self.nombre, email = self.email, contrasenia = self.contrasenia)
+        res = db.insert(self)
         
         match res:
             case 1:

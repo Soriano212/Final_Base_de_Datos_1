@@ -20,7 +20,7 @@ class Abierta(Pregunta):
         super().__init__(pos_pregunta, enunciado)
 
     def publicar(self, id_encuesta: int) -> int:
-        res = db.insert('abierta', id_encuesta = id_encuesta, pos_pregunta = self.pos_pregunta, enunciado = self.enunciado)
+        res = db.insert_ant('abierta', id_encuesta = id_encuesta, pos_pregunta = self.pos_pregunta, enunciado = self.enunciado)
         
         match res:
             case 1:
@@ -42,7 +42,7 @@ class Opcion():
         return (self.pos_opcion, str(self.enunciado))
 
     def publicar(self, pos_pregunta: int, id_encuesta: int) -> int:
-        res = db.insert('opcion', pos_pregunta = pos_pregunta, pos_opcion = self.pos_opcion, enunciado = self.enunciado,
+        res = db.insert_ant('opcion', pos_pregunta = pos_pregunta, pos_opcion = self.pos_opcion, enunciado = self.enunciado,
                         id_encuesta = id_encuesta)
         
         match res:
@@ -83,7 +83,7 @@ class Cerrada(Pregunta):
         return (self.pos_pregunta, str(self.enunciado), self.seleccionar_varias, datos)
 
     def publicar(self, id_encuesta: int) -> int:
-        res = db.insert('cerrada', id_encuesta = id_encuesta, pos_pregunta = self.pos_pregunta, enunciado = self.enunciado,
+        res = db.insert_ant('cerrada', id_encuesta = id_encuesta, pos_pregunta = self.pos_pregunta, enunciado = self.enunciado,
                         seleccionar_varias = int(self.seleccionar_varias))
         
         match res:
@@ -155,7 +155,7 @@ class Encuesta():
         return cambio
 
     def publicar(self, cedula: str) -> int:
-        res = db.insert('encuesta', titulo = self.titulo, cedula = cedula)
+        res = db.insert_ant('encuesta', titulo = self.titulo, cedula = cedula)
         
         match res:
             case 1:
